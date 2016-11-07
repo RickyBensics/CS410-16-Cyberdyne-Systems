@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-24.0.0_50f9f067dd595162458f84c8df9de08c97a26c62\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_11e4a0b4a6b1b1e77665fde5dd32dd8c79a075d9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e3234cd25e23069abd48ecd2117bc0e8011bf45a">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.8.0_9bb7b50f5c3d47b4b34284545a4f134bc9c37bb0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ec9104b53aee77dfcfd2fe1c4add23ff7c4df55f">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-9.8.0_ae296ead0b5f31aa677c8662d7ffe6f5550b02a7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0b8e087da59c0b062c33f49a335e59f907086da2">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-9.8.0_2d19a29a1b02d8435e3a48ca39c68105f2974097\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_3fc833350f03d223437b94d8ca6f9f9b3ec6f923\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_bb0fd9b1d9d25c06f5e3e17e7d3938543f0fedd3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="03df48d3713661d66ad024b1e406259a4c26fcac">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.8.0_599df5efaa1b21203ac38a15ac3af35265402cb1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9ff04cc3470178a44512624036751a803418c2ca">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.8.0_c903c9c1a44d31f77b2cfe1f86cdace7f2600950\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_f4a9f618d8ed6ba13d0f7d4a7cef7879b5132c33\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_09b34e6653c69059704ef3a815b656420c97c688\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="20a3c4e355150c15c13dd58045d43ad0c717d916">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-9.8.0_a52ae904ad8f8a5b340c8f850d36eeb18b7a69a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_5276552c29c2f302b6da26c7dbb3e77f8cc7924b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6b6f292b8b951dcf2ecf2b20853e3eabc7d65c48">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.8.0_59205f5ff23a64fe642b8fc8fa7cfc9e076ea0ba\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fbb3885c40e431cd2b0dc69c0cab2bf6d5da7b43">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.8.0_7544cff2df86aad00bdb70bc49c3d06786990c53\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0b53c4b90654b67ee3892a8e2e7b819c083ab7a6">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-9.8.0_ac6ee926bba31110a3ac132178c4b48092190d15\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7e92aadd0697922316d1395c1887a23aebec640a">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.8.0_35657e422de1f51c08dc363973f1d96f050595e2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.8.0_6b781619b5926b3277dabc9b283a8ec6023d6f65\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e9b2cfdfd59b03643f1e240668275378b96615a8">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-9.8.0_669e1cfe63250e9e420bf1e67a60501e14e021a6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="679251204de40ace98776a6f4e3a649c27e3d89f">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-9.8.0_d6855b80bf96af1147b8a901af8132b2137940ed\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0047bc4bd266e8c28a97a12241b5e5e12f3ccc68">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_dfd7c49d641b3d27bcbea8174aed4c14e05c77b6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5ffe8867f51cfc726e9fb21db1e5b6962ebf25a0">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.8.0_e6f46c98af44d272d1a4132f1e0609b19e66f438\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e56f31b23ddb067f95f01255295167db7c798612">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-9.8.0_3d00c5f3204437efc3f015474763b3f690ca9149\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="85299bf1924dde0200109a58033c5ef84ecb6991">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-9.8.0_63435a6e22353875f763591a4496d5d01a05d385\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="190a642ba16d1421296a4d794606279b80039c59">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.8.0_b1eeeec06d8d935bfb91a4b76417f5b8703d20fc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.8.0_10bd8cd9346da565daff55b48cd5b519f32a6f7e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_49ed35b830374cbb70478d174756cccfef02e5df\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a30aea7df545072ad3c06f56b2efc13e67222140">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-9.8.0_8b8a614200771c4ca9748e7e263cdd644abcb468\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7fd91ec2730fdaa82906aad32a3f3d3e574bae56">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.8.0_24ffd763aef14c527250b73245fe4bbf9597751e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3f8f779a22cbb4c4d0759467a4f1011bb5252970">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.8.0_ac52f4c8c5dd0a49d158f4df2eea3411fff541d2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c98b3c1bdd5b15c355858aefe3de623acd819bd8">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_46de0b570e8552988642a742583c8d771e7ae734\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4438b1a7848a7c571122ba618aa1304514aabee6">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.8.0_21b989f964ad369a126642f86922185d93092cfb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ca851be26ff89f5b32cc222cee98139fb3fac830">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.8.0_7268caaafee5e6c5c8b66e4702a2a45b0680b90d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="122ec9237acd8a57d974b9d529987f1ee6ca5aea">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.8.0_6785a6104a02e6b587e4a96dc83791b49d4a09a0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="16afe57c1d7f8165d107c7806ce7b0c71de87159">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-9.8.0_301b8783b980063f2ea6aa3b0f2cb3e0a0460b08\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_85152221ed46da3d8bb512537414fe9e71137e9b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f2d240dd085626f03f759c41d628a0c8b63e491f">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.8.0_d585283ceba9a346f310d6e0b085a53a826f2e8d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_466d7f585a16e699c44a899f86f0898140851be9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a7a04d6b7c01e569a285fa627cf64f5b05295906">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-9.8.0_2eab2e875cc3f7c7aae8e697e532dda172bb5019\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_3950b6a6868a4f3c7e19ab0357097308fa620284\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b4671be3d1288bf4e5f527cd33e42909fbe4ecc6">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-9.8.0_fd004d52593c4d1ba1b7a4dfcf9e0046ccb1c526\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="363a20f1d25336e827dd24020f2ecdc42d62638f">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-9.8.0_672b358b5b2156e73de18ed8aadcc8f5d0dd4c7f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="04bbbddf868aa02dd33f9e90d8f5d908c360f638">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-9.8.0_cbadfbd5e0e2bead5668f3a6adc888fb210ee940\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5f47ede9561595584dca71104baa0fecb36dda87">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.8.0_4d999cc5cbd77b6e535696c546db8125fcd5c8aa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_12761615bc8277e2e07eeab750f77a548275a269\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="cef85cfc7df40e29fbea58844dd4c1e7d0b15542">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-9.8.0_6df23129b11eab2cde2aa12c6347018a153f7147\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="50e35ae101a679c4c8ef3dda075b1df9d5d947d9">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-9.8.0_eb4143a089fc3701a187ba5f7a1b40c6090bea7e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="266570862e5792ef3c51143a8b8593cf54fac68d">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-9.8.0_b457d8debb4f4a629cf3d3b0c60d4770510b5528\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9dae58326f6f6a515022468cce56dd04ec3b9fdb">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-9.8.0_ece9b8d4d123b81760ec38e1c8e5f225f351e6ca\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="00d358528c5a8731a6e19bca910cbb3fd755ee31">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-9.8.0_bdc1788b4ecfec265c0392ee433b228d4ed39e72\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="055eed08c9cff50cac0db69c74c4d9ff7aef3d84">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-9.8.0_16f2ce1f2db494e0e24e054790cfd3277e2cf1fd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a1ed98e01bd58976d80c062fd0ea2968a1ff68a1">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.8.0_1fc7828c483b8fbd6175123f37959df3e96e8cfa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="74ac7cbcf0de4a88e59612dc3a9e3f9e71acb4ca">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-9.8.0_7fc219d4a460c63f41879e22d979cc014906931c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c61641e333fa88da21758bab8cc28ee16604b05f">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.8.0_11705fd65b888aa04ecf03a460a28c1d13512860\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a972970c8beddb69c198f61f3fc55f0606a7dfe3">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.8.0_0931ec348c68717e0c1b049b351e4b96924b6090\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-awareness\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a2537b11ae24b42172d34e2a613fc0b903c56158">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-awareness-9.8.0_a6ba54e30b7e60de911c960b2456c3c1f94f2813\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_106b9502ae70c5b20860cce17b67303a000cf37a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c81df6bd515398ebe45089b0b16c55752a131f6a">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-9.8.0_6bb6b267b5f9d66bdd42b4e341570d7821c7deee\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="15e59454416c6341bd3ed2533b585cd340682dd1">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.8.0_5a4554703471f8dd103164e13ccced1eda7821e7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="910c013c511f752c4bbe24c5f492f669f4a3ccc0">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-9.8.0_c48958d04cf3ebf7800818e593c5da2e35910e2c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ee5304fd374e0b4ebf6b42d4037fbfb2c5336511">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-9.8.0_a1dda4acb58f6a50f1671a3fd35fe395c4cc67da\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_2b51f07196e529ca71ee4dbdf31d9b2eaad5aeb0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2d3035050a075484cbf2e33f1ce1f779bae4d451">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-9.8.0_aaebdd71266e64433cec6420bc02eb6f4b12d2a8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_7b7549175568e316057695d985f5701958f6822a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3daa7a9c9009fd386872a84c177a76979bdcafd6">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-9.8.0_444664d112170bec5e73ffb71a7d2339c415f057\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="289cad663c288ce965463cb9ece8b35cc7de0fac">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-9.8.0_24f532e0f4fc8ed87d62a780f6aa45f587335665\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_be7a5aca94a20061a716e9ec09445a6b8ed6fc9c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_23151d4ee5c6c017ca8646c2bd29a5e664eb553f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CTFastrak_Android_Application\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_17b53043d932b7dccb69765e2be8e7ad4fd1dd6f\classes.dex" />
+    </item>
+
+</items>
