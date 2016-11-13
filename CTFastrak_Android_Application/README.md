@@ -1,2 +1,8 @@
 # CTFastrak_Android_Application
-Put these files into a folder named "CTFastrak_Android_Application" and then open that file using Android Studio.
+Run this folder using Android Studio
+
+TODO:
+* Display user location on map
+* Center map initially on user location
+* Implement Calendar from GTFS feed
+* Iplement search bar for routes / bus stops
