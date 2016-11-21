@@ -12,6 +12,7 @@ NEW in this iteration:
   * Buses are displayed in realtime along selected route
   
 TODO:
+  * Add splash screen on startup
   * Make info box more robust (e.g display time until next arriving bus)
   * Replace default marker icons for bus stops and buses
   * Make bus stops selectable as either arrival or departure location from info box or search bar
