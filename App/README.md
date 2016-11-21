@@ -13,6 +13,7 @@ NEW in this iteration:
   
 TODO:
   * Make info box more robust (e.g display time until next arriving bus)
+  * Replace default marker icons for bus stops and buses
   * Make bus stops selectable as either arrival or departure location from info box or search bar
   * Implement SearchView for search bar
   * Display and center initially on user location
