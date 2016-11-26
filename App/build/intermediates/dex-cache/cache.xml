@@ -3,51 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_f9b0efae5bb61e02055765bdbd28b52ed0c0739b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_f7d960256230fea61585025ad8a275bf393dd5dc\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6b6f292b8b951dcf2ecf2b20853e3eabc7d65c48">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.8.0_fd27c46f8a103d6564ce136b7c4b2184da2959d0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_2ce70bc6a32e17ab8142add92d8229201ea73ed0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_85152221ed46da3d8bb512537414fe9e71137e9b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -66,30 +21,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e3234cd25e23069abd48ecd2117bc0e8011bf45a">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.8.0_fbc1f018ddba012238a03563f84a8243c606da3e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="4438b1a7848a7c571122ba618aa1304514aabee6">
         <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.8.0_5540b5def536cd6e6b7e2622f309810f992ffe7e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e9b2cfdfd59b03643f1e240668275378b96615a8">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-9.8.0_1e102c5ad16a1be0781b0bdcc53d074833534dea\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -120,30 +57,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="50e35ae101a679c4c8ef3dda075b1df9d5d947d9">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-9.8.0_3a22104a91d240f7fa514ab754588de6323b73b7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="190a642ba16d1421296a4d794606279b80039c59">
         <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.8.0_6a170eedf5bee862f43f1d22776a1ee225045c81\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fff9e5fa08e4dc850c7c2595100ec30abd39e9d2">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_4a4f2f97436c428e09575f1a85825f2836ad95f3\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -156,84 +75,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.8.0_673248dd86c6359cd9ac59ec8534c37fd04db263\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="a972970c8beddb69c198f61f3fc55f0606a7dfe3">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.8.0_e27321d153969074752eaabac297f587102cb359\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7fd91ec2730fdaa82906aad32a3f3d3e574bae56">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.8.0_5a9cc22a69baff67a8e740e5c6c6ef2d7e64f40f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_06e90d59a6497f44e234c5da9a6cb24582332b65\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e56f31b23ddb067f95f01255295167db7c798612">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-9.8.0_000baa4dbd4c63e4656e60e64e1a13d0eecd145f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="a1ed98e01bd58976d80c062fd0ea2968a1ff68a1">
         <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.8.0_64cf782463fb35418720838b548ca0789f6b4983\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="ec9104b53aee77dfcfd2fe1c4add23ff7c4df55f">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-9.8.0_99e5566657faab5e5e65df92ede4182eacc7a395\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="00d358528c5a8731a6e19bca910cbb3fd755ee31">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-9.8.0_21d15713e5e4bd0c1c3caff090c5d99252787f79\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_2309863033b1b48824170a65bdd6e6c989a784ec\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -273,39 +120,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="363a20f1d25336e827dd24020f2ecdc42d62638f">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-9.8.0_5a6207e6b4b283d007fbcc09ff9bd2f02ca18f26\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
         <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_7467ef74270c0b959b1bdef15ee89bbb71c1e5b1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="20a3c4e355150c15c13dd58045d43ad0c717d916">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-9.8.0_1cd7557e15b5c431b09dd905742e7483a9ca82d2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_c71f3a9c4c166a799c386038ad159cabc081e477\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -336,39 +156,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="289cad663c288ce965463cb9ece8b35cc7de0fac">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-9.8.0_2fd92098d35a94dcde7245720ebdae0838446a8e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_e854f1dd2288633f027e2de73091597f4040019a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="910c013c511f752c4bbe24c5f492f669f4a3ccc0">
         <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-9.8.0_151c09589d4707b5e62402ac818e56fa05bc0cf3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_2bfefeed21f3edadaf22d8137ebe94bd7faf7638\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -390,75 +183,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fbb3885c40e431cd2b0dc69c0cab2bf6d5da7b43">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.8.0_be6602fc9145c02698b3ac8c46691881920e562d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3f8f779a22cbb4c4d0759467a4f1011bb5252970">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.8.0_9d042b8e14f8f656ac4299da87dbf2729188917c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3daa7a9c9009fd386872a84c177a76979bdcafd6">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-9.8.0_b61ba926e88a9c6ce7144bcc58c768e50eb82ed3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="ee5304fd374e0b4ebf6b42d4037fbfb2c5336511">
         <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-9.8.0_5c51852cb71732c9e5f5a874cf121987b611ddb2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0b53c4b90654b67ee3892a8e2e7b819c083ab7a6">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-9.8.0_07858167a9b0ebea980aa700fdfe0ce666838f7d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="122ec9237acd8a57d974b9d529987f1ee6ca5aea">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.8.0_76fceb4008b79e7dc137cd1af5812db5d4163212\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="50e5cbc92b778ee438c7a614e269d9beb49dd3ad">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_018dd598e12b6422c439b7c3a4d2604786392e2b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_8b41f318767ba8d116440cc6e108f31546700166\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -486,15 +216,6 @@
         revision="25.0.0"
         sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
         <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_bb55ab6fc156eff79fbe0a699dd8e1acd69c3a44\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="15e59454416c6341bd3ed2533b585cd340682dd1">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.8.0_bf710dd92e65e734ca6374b29ba3d077ea6a6f9c\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -543,57 +264,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9ff04cc3470178a44512624036751a803418c2ca">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.8.0_324b0b881050bbbe97f85b404f41388cbf5b7450\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="85299bf1924dde0200109a58033c5ef84ecb6991">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-9.8.0_cb6f0fc8648923cdfd04f86d4a3e61edcc035e28\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="cef85cfc7df40e29fbea58844dd4c1e7d0b15542">
         <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-9.8.0_bebc7c781e357020b483752072ea7eab40f03d05\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_57ea9f93c5f4b0ed8d902b0aaaac43e45d2351fa\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f2d240dd085626f03f759c41d628a0c8b63e491f">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.8.0_8ca046346b46fad0df103e4eeec16a32b868de50\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="266570862e5792ef3c51143a8b8593cf54fac68d">
-        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-9.8.0_dc1e148d7f92ebdc6bb68b5371dac3052f00d520\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -621,6 +297,330 @@
         revision="25.0.0"
         sha1="0b8e087da59c0b062c33f49a335e59f907086da2">
         <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-9.8.0_e012aaefee6d00964e8dacebb5fe24244dfff53a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_f9b0efae5bb61e02055765bdbd28b52ed0c0739b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_f7d960256230fea61585025ad8a275bf393dd5dc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6b6f292b8b951dcf2ecf2b20853e3eabc7d65c48">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.8.0_fd27c46f8a103d6564ce136b7c4b2184da2959d0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_2ce70bc6a32e17ab8142add92d8229201ea73ed0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_85152221ed46da3d8bb512537414fe9e71137e9b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e3234cd25e23069abd48ecd2117bc0e8011bf45a">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.8.0_fbc1f018ddba012238a03563f84a8243c606da3e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e9b2cfdfd59b03643f1e240668275378b96615a8">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-9.8.0_1e102c5ad16a1be0781b0bdcc53d074833534dea\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="50e35ae101a679c4c8ef3dda075b1df9d5d947d9">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-9.8.0_3a22104a91d240f7fa514ab754588de6323b73b7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="850db1accf969e656d64532f2d4e54fdc3c93565">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_4a4f2f97436c428e09575f1a85825f2836ad95f3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.8.0_673248dd86c6359cd9ac59ec8534c37fd04db263\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a972970c8beddb69c198f61f3fc55f0606a7dfe3">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.8.0_e27321d153969074752eaabac297f587102cb359\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7fd91ec2730fdaa82906aad32a3f3d3e574bae56">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.8.0_5a9cc22a69baff67a8e740e5c6c6ef2d7e64f40f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_06e90d59a6497f44e234c5da9a6cb24582332b65\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e56f31b23ddb067f95f01255295167db7c798612">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-9.8.0_000baa4dbd4c63e4656e60e64e1a13d0eecd145f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ec9104b53aee77dfcfd2fe1c4add23ff7c4df55f">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-9.8.0_99e5566657faab5e5e65df92ede4182eacc7a395\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="00d358528c5a8731a6e19bca910cbb3fd755ee31">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-9.8.0_21d15713e5e4bd0c1c3caff090c5d99252787f79\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_2309863033b1b48824170a65bdd6e6c989a784ec\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="363a20f1d25336e827dd24020f2ecdc42d62638f">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-9.8.0_5a6207e6b4b283d007fbcc09ff9bd2f02ca18f26\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="20a3c4e355150c15c13dd58045d43ad0c717d916">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-9.8.0_1cd7557e15b5c431b09dd905742e7483a9ca82d2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_c71f3a9c4c166a799c386038ad159cabc081e477\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="289cad663c288ce965463cb9ece8b35cc7de0fac">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-9.8.0_2fd92098d35a94dcde7245720ebdae0838446a8e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_e854f1dd2288633f027e2de73091597f4040019a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_2bfefeed21f3edadaf22d8137ebe94bd7faf7638\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fbb3885c40e431cd2b0dc69c0cab2bf6d5da7b43">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.8.0_be6602fc9145c02698b3ac8c46691881920e562d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3f8f779a22cbb4c4d0759467a4f1011bb5252970">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.8.0_9d042b8e14f8f656ac4299da87dbf2729188917c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3daa7a9c9009fd386872a84c177a76979bdcafd6">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-9.8.0_b61ba926e88a9c6ce7144bcc58c768e50eb82ed3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0b53c4b90654b67ee3892a8e2e7b819c083ab7a6">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-9.8.0_07858167a9b0ebea980aa700fdfe0ce666838f7d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="122ec9237acd8a57d974b9d529987f1ee6ca5aea">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.8.0_76fceb4008b79e7dc137cd1af5812db5d4163212\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0e8b1cecd78b967a9c2bfa08239a4a3680628dec">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_018dd598e12b6422c439b7c3a4d2604786392e2b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_8b41f318767ba8d116440cc6e108f31546700166\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="15e59454416c6341bd3ed2533b585cd340682dd1">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.8.0_bf710dd92e65e734ca6374b29ba3d077ea6a6f9c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9ff04cc3470178a44512624036751a803418c2ca">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.8.0_324b0b881050bbbe97f85b404f41388cbf5b7450\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="85299bf1924dde0200109a58033c5ef84ecb6991">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-9.8.0_cb6f0fc8648923cdfd04f86d4a3e61edcc035e28\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_57ea9f93c5f4b0ed8d902b0aaaac43e45d2351fa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f2d240dd085626f03f759c41d628a0c8b63e491f">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.8.0_8ca046346b46fad0df103e4eeec16a32b868de50\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="266570862e5792ef3c51143a8b8593cf54fac68d">
+        <dex dex="D:\Users\Richard\Documents\GitHub\CS410-16-Cyberdyne-Systems\App\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-9.8.0_dc1e148d7f92ebdc6bb68b5371dac3052f00d520\classes.dex" />
     </item>
 
 </items>

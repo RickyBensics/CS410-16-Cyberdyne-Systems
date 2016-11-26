@@ -4,6 +4,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
@@ -18,39 +19,31 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.PendingIntent;
 import android.app.ProgressDialog;
-import android.appwidget.AppWidgetManager;
-import android.content.Context;
-import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RemoteViews;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Created by Richard on 10/30/2016
@@ -80,7 +73,6 @@ public class MapsActivity extends AppCompatActivity
     private float mMinZoom;
     private float mMaxZoom;
     private boolean lineSelected;
-    private int[] lineHashCodes;
     private GoogleMap currentMap;
     private TextView infoBox;
     private StringBuilder info;
@@ -90,10 +82,12 @@ public class MapsActivity extends AppCompatActivity
     private String[] GTFSinfo;
 
     private String JSONData;
-    ProgressDialog pd;
     private JSONObject obj, vehiclePosition, vehicle, position, trip;
     private JSONArray entity;
-    private int RTinfoUpdated = 0;
+    private int RTinfoUpdated=0;
+    private LinearLayout buttonList;
+    private LinearLayout.LayoutParams layoutParameters;
+
 
     ArrayList<LatLng> coordinates = new ArrayList<LatLng>();
     ArrayList<Integer> shape_ids = new ArrayList<Integer>();
@@ -101,9 +95,11 @@ public class MapsActivity extends AppCompatActivity
     ArrayList<Integer> stop_ids = new ArrayList<Integer>();
     ArrayList<String> realtimeBusIds = new ArrayList<String>();
     ArrayList<String> realtimeBusIds2 = new ArrayList<String>();
-    ArrayList<PolylineOptions> polylines = new ArrayList<PolylineOptions>();
+    ArrayList<PolylineOptions> polylineOptions = new ArrayList<PolylineOptions>();
+    ArrayList<Polyline> polylines = new ArrayList<Polyline>();
     ArrayList<Marker> markers = new ArrayList<Marker>();
     ArrayList<Marker> busMarkers = new ArrayList<Marker>();
+    ArrayList<String> busMarkersIds = new ArrayList<String>();
     ArrayList<busStop> busStops = new ArrayList<busStop>();
     ArrayList<stopTime> stopTimes = new ArrayList<stopTime>();
     ArrayList<trip> trips = new ArrayList<trip>();
@@ -212,7 +208,11 @@ public class MapsActivity extends AppCompatActivity
             reader.readLine();
             while ((line = reader.readLine()) != null) {
                 String[] info = line.split(",");
-                routes.add(new route(Integer.parseInt(info[0]), null, info[2], null, null, Integer.parseInt(info[5]), null, info[7], info[8]));
+                for(trip busTrip : trips)
+                    if(busTrip.getRoute_id().intValue() == Integer.parseInt(info[0])) {
+                        routes.add(new route(Integer.parseInt(info[0]), null, info[2], null, null, Integer.parseInt(info[5]), null, info[7], info[8]));
+                        break;
+                    }
             }
 
             ims = new InputStreamReader(am.open("calendar_dates.txt"), "UTF-8"); // These are exceptions to the regular calendar. It is not implemented yet
@@ -238,16 +238,6 @@ public class MapsActivity extends AppCompatActivity
         mapFragment.getMapAsync(this);
         infoBox = (TextView)findViewById(R.id.textView);
 
-
-
-        /*Button myButton = new Button(this); // Buttons will have to be dynamically added into the scrollview instead of regular text to make the route / busStop selectable from the infoBox
-        myButton.setText("Push Me");
-
-        LinearLayout ll = (LinearLayout)findViewById(R.id.buttonLayout);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        ll.addView(myButton, lp);*/
-
-
         /* POLYLINES FOR ROUTES */
         for (route busRoute : routes) { // for each busRoute in the routes arraylist, we take the route_id, match it with the corresponding route_id in the trips arraylist, then match it with the correct shape_id so we can add all the vertices of a route to the map
             for (int i = 0; i < trips.size(); i++) {
@@ -264,8 +254,7 @@ public class MapsActivity extends AppCompatActivity
             StringBuilder color = new StringBuilder("");
             color.append("#FF" + busRoute.getRoute_color()); // Colors in text are stored as 16 bit hex. Convert to 32 bit with the leading to hex digits being the Alpha (transparency) value. FF = 100% 80 = 50%
             String stringColor = color.toString();
-            //System.out.println(stringColor);
-            polylines.add(new PolylineOptions().addAll(coordinates).width(10).color(Color.parseColor(stringColor)).clickable(true));
+            polylineOptions.add(new PolylineOptions().addAll(coordinates).width(10).color(Color.parseColor(stringColor)).clickable(true));
             coordinates.clear();
         }
     }
@@ -283,9 +272,33 @@ public class MapsActivity extends AppCompatActivity
         currentMap = map;
         lineSelected = false;
 
-        lineHashCodes = new int[polylines.size()];
-        for (int i = 0; i < polylines.size(); i++) {
-            lineHashCodes[i] = map.addPolyline(polylines.get(i)).hashCode();
+        for (int i = 0; i < polylineOptions.size(); i++) {
+            polylines.add(map.addPolyline(polylineOptions.get(i)));
+        }
+
+        /* LIST OF ROUTES IN INFOBOX */
+        buttonList = (LinearLayout)findViewById(R.id.buttonList);
+        layoutParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        for(int i = 0; i < routes.size(); i++)
+        {
+            final Button myButton = new Button(this); // Buttons will have to be dynamically added into the scrollview instead of regular text to make the route / busStop selectable from the infoBox
+            myButton.setText("Route: " + routes.get(i).getRoute_short_name());
+            myButton.setId(i);
+
+            StringBuilder color = new StringBuilder("");
+            color.append("#FF" + routes.get(i).getRoute_color()); // Colors in text are stored as 16 bit hex. Convert to 32 bit with the leading to hex digits being the Alpha (transparency) value. FF = 100% 80 = 50%
+            String stringColor = color.toString();
+            myButton.setTextColor(Color.parseColor(stringColor));
+
+            myButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    System.out.println(myButton.getText() + " was pressed");
+                        selectPolyline(polylines.get(myButton.getId()));
+                }
+            });
+
+            buttonList.addView(myButton, layoutParameters);
         }
 
         /* DISPLAY BUS STOPS ON POLYLINE CLICK */
@@ -293,70 +306,7 @@ public class MapsActivity extends AppCompatActivity
         map.setOnPolylineClickListener(new GoogleMap.OnPolylineClickListener() { // Add a listener for polyline clicks
             @Override
             public void onPolylineClick(Polyline polyline) {
-                info = new StringBuilder("");
-                if (lineSelected) { // This will never occur the first time a route is selected
-                    //System.out.println("lineSelected is already " + lineSelected);
-                    for (int j = 0; j < markers.size(); j++) {
-                        markers.get(j).remove();
-                        lineSelected = false;
-                    }
-                }
-                if (!lineSelected) {
-                    currentMap.clear(); // redraw polylines. The lines not selected will be made transparent and only the one selected will display bus stop markers
-                    markers.clear();
-                    int i = 0;
-                    for (int j = 0; j < polylines.size(); j++) {
-                        String hexColor = String.format("#%08X", (0xFFFFFFFF & polylines.get(j).getColor()));
-                        char[] color = hexColor.toCharArray();
-                        if(polyline.hashCode() != lineHashCodes[j]){
-                            color[1] = '8';
-                            color[2] = '0';
-                            String stringColor = new String(color);
-                            lineHashCodes[j] = currentMap.addPolyline(polylines.get(j).color(Color.parseColor(stringColor)).width(6)).hashCode();
-                        }
-                        else{
-                            color[1] = 'F';
-                            color[2] = 'F';
-                            String stringColor = new String(color);
-                            lineHashCodes[j] = currentMap.addPolyline(polylines.get(j).color(Color.parseColor(stringColor)).width(13)).hashCode();
-                            //System.out.println("This route_id is " + routes.get(j).getRoute_id());
-
-                            for (int k = 0; k < trips.size(); k++) {
-                                if (trips.get(k).getRoute_id().intValue() == routes.get(j).getRoute_id().intValue() && trips.get(k).getService_id().intValue() == service_id) {
-                                    //System.out.println("Trip " + trips.get(k).getRoute_id() + " has been found on this route");
-                                    for (int m = 0; m < stopTimes.size(); m++) {
-                                        if (stopTimes.get(m).getTrip_id().intValue() == trips.get(k).getTrip_id().intValue()) {
-                                            //System.out.println("Stop time found");
-                                            for (int n = 0; n < busStops.size(); n++) {
-                                                if (busStops.get(n).getStop_id().intValue() == stopTimes.get(m).getStop_id().intValue()) {
-                                                    //System.out.println("Marker added");
-                                                    Marker stopMarker = currentMap.addMarker(new MarkerOptions().position(new LatLng(busStops.get(n).getStop_lat(), busStops.get(n).getStop_lon())).title(busStops.get(n).getStop_name()));
-                                                    stopMarker.setTag(n);
-                                                    markers.add(stopMarker);
-                                                    i++;
-                                                    lineSelected = true;
-                                                }
-                                            }
-                                        }
-                                    };
-                                    routeIndex = j;
-                                    showBusesOnRoute(j);
-                                    h.postDelayed(new Runnable(){
-                                        public void run(){
-                                            showBusesOnRoute(routeIndex);
-                                            h.postDelayed(this, delay);
-                                        }
-                                    }, delay);
-                                    info.append("Route: " + routes.get(j).getRoute_short_name() + "\n");
-                                    info.append("# of buses active on this route : " + busMarkers.size() + "\n");
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    //System.out.println("lineSelected change to " + lineSelected);
-                    infoBox.setText(info);
-                }
+                selectPolyline(polyline);
             }
         });
 
@@ -364,6 +314,96 @@ public class MapsActivity extends AppCompatActivity
         map.setOnInfoWindowClickListener(this);
 
     }
+
+    public void selectPolyline(Polyline polyline) {
+        System.out.println("Polyline selected: " + polyline.getId());
+        buttonList.removeAllViews();
+        info = new StringBuilder("");
+            System.out.println("# of markers before removal: " + markers.size());
+            for(Marker marker : markers) {
+                marker.remove();
+            }
+            for(Marker busMarker : busMarkers) {
+                busMarker.remove();
+            }
+            System.out.println("# of markers before clear: " + markers.size());
+            markers.clear();
+            busMarkers.clear();
+            System.out.println("# of markers after clear: " + markers.size());
+            int i = 0;
+            for (int j = 0; j < polylineOptions.size(); j++) {
+                String hexColor = String.format("#%08X", (0xFFFFFFFF & polylineOptions.get(j).getColor()));
+                char[] color = hexColor.toCharArray();
+                if(polyline.hashCode() != polylines.get(j).hashCode()){
+                    color[1] = '8';
+                    color[2] = '0';
+                    String stringColor = new String(color);
+                    polylines.get(j).setColor(Color.parseColor(stringColor));
+                    polylines.get(j).setWidth(6);
+                }
+                else{
+                    color[1] = 'F';
+                    color[2] = 'F';
+                    String stringColor = new String(color);
+                    polylines.get(j).setColor(Color.parseColor(stringColor));
+                    polylines.get(j).setWidth(13);
+                    //System.out.println("This route_id is " + routes.get(j).getRoute_id());
+
+                    for (int k = 0; k < trips.size(); k++) {
+                        if (trips.get(k).getRoute_id().intValue() == routes.get(j).getRoute_id().intValue() && trips.get(k).getService_id().intValue() == service_id) {
+                            //System.out.println("Trip " + trips.get(k).getRoute_id() + " has been found on this route");
+                            for (int m = 0; m < stopTimes.size(); m++) {
+                                if (stopTimes.get(m).getTrip_id().intValue() == trips.get(k).getTrip_id().intValue()) {
+                                    //System.out.println("Stop time found");
+                                    for (int n = 0; n < busStops.size(); n++) {
+                                        if (busStops.get(n).getStop_id().intValue() == stopTimes.get(m).getStop_id().intValue()) {
+                                            //System.out.println("Marker added");
+                                            markers.add(currentMap.addMarker(new MarkerOptions().position(new LatLng(busStops.get(n).getStop_lat(), busStops.get(n).getStop_lon())).title(busStops.get(n).getStop_name())));
+                                            markers.get(markers.size()-1).setTag(n);
+                                            //lineSelected = true;
+
+                                            final Button myButton = new Button(this); // Buttons will have to be dynamically added into the scrollview instead of regular text to make the route / busStop selectable from the infoBox
+                                            myButton.setText("Bus Stop: " + busStops.get(n).getStop_name());
+                                            myButton.setId(i);
+
+                                            myButton.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View view) {
+                                                    System.out.println(myButton.getText() + " was pressed");
+                                                    // Do something
+                                                }
+                                            });
+
+                                            buttonList.addView(myButton, layoutParameters);
+
+                                            i++;
+                                        }
+                                    }
+                                }
+                            };
+                            routeIndex = j;
+                            busMarkers.clear();
+                            busMarkersIds.clear();
+                            showBusesOnRoute(routeIndex);
+                            RTinfoUpdated = 1;
+                            h.postDelayed(new Runnable(){
+                                public void run(){
+                                    showBusesOnRoute(routeIndex);
+                                    h.postDelayed(this, delay);
+                                }
+                            }, delay);
+                            info.append("Route: " + routes.get(j).getRoute_short_name() + "\n");
+                            info.append("# of buses active on this route : " + busMarkers.size() + "\n");
+                            break;
+                        }
+                    }
+                }
+            }
+            //System.out.println("lineSelected change to " + lineSelected);
+            infoBox.setText(info);
+    }
+
+
 
     public void onButtonClick(View v) {
         if(v.getId() == R.id.searchButton) {
@@ -392,13 +432,10 @@ public class MapsActivity extends AppCompatActivity
         info = new StringBuilder("");
         for (stopTime stop : stopTimes) { // for each stop in the stopTimes array, append the relevant stop arrival and destination times
             if (stop.getStop_id().intValue() == id) {
-                //for (trip busTrip : trips) {
                 for(int i = 0; i < trips.size(); i++){
-                    //if (busTrip.getTrip_id().intValue() == stop.getTrip_id().intValue()) {
                     if(trips.get(i).getTrip_id().intValue() == stop.getTrip_id().intValue() && trips.get(i).getService_id().intValue() == service_id){
-                        //times.append("Route: " + busTrip.getTrip_headsign());
                         headsign = trips.get(i).getTrip_headsign();
-                        if(!(headsign.equals(prevHeadsign))) { // The logic here assumes that headsigns are grouped together in GTFS file, which it isn't, so the logic has to be modifiedhere
+                        if(!(headsign.equals(prevHeadsign))) { // The logic here assumes that headsigns are grouped together in GTFS file, which it isn't, so the logic has to be modified here
                             info.append("Route: " + trips.get(i).getTrip_headsign() + "\n");
                         }
                         prevHeadsign = headsign;
@@ -410,6 +447,8 @@ public class MapsActivity extends AppCompatActivity
         }
         infoBox.setText(info);
     }
+
+
 
 
 
@@ -497,6 +536,7 @@ public class MapsActivity extends AppCompatActivity
                 realtimeBusIds2.clear();
                 for (int i = 0; i < entity.length(); ++i) {
                     vehiclePosition = entity.getJSONObject(i);
+                    //System.out.println(vehiclePosition.toString());
                     realtimeBusIds2.add(vehiclePosition.getString("id").toString()); // Gets all ids within JSON URL
                     if(!realtimeBusIds.contains(vehiclePosition.getString("id").toString())) // A new vehicle appears and must be added
                     {
@@ -529,13 +569,13 @@ public class MapsActivity extends AppCompatActivity
                         realtimeBuses.remove(i);
                     }
                 }
-                System.out.println("# of bus ids after remove: " + realtimeBusIds.size()); // Debugging purposes
+                /*System.out.println("# of bus ids after remove: " + realtimeBusIds.size()); // Debugging purposes
                 System.out.println("First list of buses");
                 for(int i = 0; i < realtimeBusIds.size(); i++)
                     System.out.println(realtimeBusIds.get(i).toString());
                 System.out.println("Second list buses");
                 for(int i = 0; i < realtimeBusIds2.size(); i++)
-                    System.out.println(realtimeBusIds2.get(i).toString());
+                    System.out.println(realtimeBusIds2.get(i).toString());*/
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -544,23 +584,92 @@ public class MapsActivity extends AppCompatActivity
         }
     }
 
-    public void showBusesOnRoute(int j)
+    public void showBusesOnRoute(int routeIndex)
     {
+        ArrayList<String> busIDsOnRoute = new ArrayList<String>();
+
         new JsonTask().execute("http://65.213.12.244/realtimefeed/vehicle/vehiclepositions.json");
 
         System.out.println("# of buses out there: " + realtimeBuses.size());
-        if(busMarkers.size() !=0) { // The logic here must be changed. Instead of clearing every busMarker each time interval, the positions of existing realtime buses must be updated instead, and others removed or added if necessary
-            for(int i = 0; i < busMarkers.size(); i++)
-                busMarkers.get(i).remove();
-        }
-        busMarkers.clear();
+
         if(realtimeBuses.size()!= 0) {
-            for(int i = 0; i < realtimeBuses.size(); i++)
-            {
-                if(routes.get(j).getRoute_id().intValue() == realtimeBuses.get(i).getRoute_id().intValue())
-                    busMarkers.add(currentMap.addMarker(new MarkerOptions().position(new LatLng(realtimeBuses.get(i).getLatitude(), realtimeBuses.get(i).getLongitude())).title(realtimeBuses.get(i).getId().toString()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))));
+
+            for(int i = 0; i < realtimeBuses.size(); i++) // Get an array of all buses on route
+                if(routes.get(routeIndex).getRoute_id().intValue() == realtimeBuses.get(i).getRoute_id().intValue())
+                    busIDsOnRoute.add(realtimeBuses.get(i).getId().toString());
+
+            if (busMarkersIds.isEmpty()) { // add markers when the line is clicked
+                for (int i = 0; i < realtimeBuses.size(); i++)
+                    if (routes.get(routeIndex).getRoute_id().intValue() == realtimeBuses.get(i).getRoute_id().intValue()) {
+                        busMarkers.add(currentMap.addMarker(new MarkerOptions().position(new LatLng(realtimeBuses.get(i).getLatitude(), realtimeBuses.get(i).getLongitude())).title(realtimeBuses.get(i).getId().toString()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))));
+                        busMarkersIds.add(realtimeBuses.get(i).getId().toString());
+                    }
+            }
+            else {
+                busMarkersIds.retainAll(busIDsOnRoute); // arraylist is now just an arraylist of pre-existing busMarkers
+                for(int i = 0; i < busMarkers.size(); i++) {
+                    if (busMarkersIds.contains(busMarkers.get(i).getTitle())) { // animate existing busMarker
+                        for(int j = 0; j < realtimeBuses.size(); j++)
+                                if(busMarkers.get(i).getTitle().compareTo(realtimeBuses.get(j).getId().toString())==0) {
+                                    animateMarker(busMarkers.get(i), new LatLng(realtimeBuses.get(j).getLatitude(), realtimeBuses.get(j).getLongitude()), false);
+                                }
+                    }
+                    else {
+                        //animateMarker(busMarkers.get(i), new LatLng(0, 0), true);
+                        busMarkers.get(i).setVisible(false);
+                        busMarkers.remove(i); // remove a bus that has disappeared
+                    }
+
+                }
+                for(int j = 0; j < busIDsOnRoute.size(); j++) { // add new bus markers
+                    if(!busMarkersIds.contains(busIDsOnRoute.get(j))) {
+                        for (int i = 0; i < realtimeBuses.size(); i++)
+                            if (routes.get(routeIndex).getRoute_id().intValue() == realtimeBuses.get(i).getRoute_id().intValue()) {
+                                busMarkers.add(currentMap.addMarker(new MarkerOptions().position(new LatLng(realtimeBuses.get(i).getLatitude(), realtimeBuses.get(i).getLongitude())).title(realtimeBuses.get(i).getId().toString()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))));
+                                busMarkersIds.add(realtimeBuses.get(i).getId().toString());
+                            }
+                    }
+                }
             }
         }
+
+    }
+
+    public void animateMarker(final Marker marker, final LatLng toPosition,
+                              final boolean hideMarker) {
+        final Handler handler = new Handler();
+        final long start = SystemClock.uptimeMillis();
+        Projection proj = currentMap.getProjection();
+        Point startPoint = proj.toScreenLocation(marker.getPosition());
+        final LatLng startLatLng = proj.fromScreenLocation(startPoint);
+        final long duration = 500;
+
+        final Interpolator interpolator = new LinearInterpolator();
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                long elapsed = SystemClock.uptimeMillis() - start;
+                float t = interpolator.getInterpolation((float) elapsed
+                        / duration);
+                double lng = t * toPosition.longitude + (1 - t)
+                        * startLatLng.longitude;
+                double lat = t * toPosition.latitude + (1 - t)
+                        * startLatLng.latitude;
+                marker.setPosition(new LatLng(lat, lng));
+
+                if (t < 1.0) {
+                    // Post again 16ms later.
+                    handler.postDelayed(this, 16);
+                } else {
+                    if (hideMarker) {
+                        marker.setVisible(false);
+                    } else {
+                        marker.setVisible(true);
+                    }
+                }
+            }
+        });
     }
 }
 

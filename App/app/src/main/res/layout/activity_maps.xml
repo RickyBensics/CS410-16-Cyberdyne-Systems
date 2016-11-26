@@ -26,7 +26,7 @@ android:layout_height="match_parent">
 
     <ScrollView
         android:background="#D0FFFFFF"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="175dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -36,7 +36,8 @@ android:layout_height="match_parent">
         android:layout_alignParentEnd="true">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingRight="5dp"
             android:paddingEnd="5dp"
@@ -44,9 +45,15 @@ android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Select a route. Bus stops along that route will appear. Select a route and tap on the title to view arrival and departure times here!!!" />
+
+            <LinearLayout
+                android:id="@+id/buttonList"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></LinearLayout>
 
             <!--<Button
                 android:text="Select a route. Bus stops along that route will appear. Select a route and tap on the title to view arrival and departure times here!!!"
@@ -64,7 +71,7 @@ android:layout_height="match_parent">
                 android:id="@+id/buttonlayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select a route. Bus stops along that route will appear. Select a route and tap on the title to view arrival and departure times here!!!" />-->
+                android:text="Select a route. Bus stops along that route will appear. Select a route and tap on the title to view arrival and departure times here!!!" /-->
 
         </LinearLayout>
     </ScrollView>
