@@ -44,6 +44,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
@@ -81,7 +82,6 @@ public class MapsActivity extends AppCompatActivity
     private StringBuilder info;
     private Calendar calendarDay;
     private int currentDay;
-    private String currentTime;
     private int service_id;
     private int routeIndex;
     private String[] GTFSinfo;
@@ -256,15 +256,6 @@ public class MapsActivity extends AppCompatActivity
 
     @Override
     public void onMapReady(GoogleMap map) {
-
-        currentTime = simpleFormatter.format(calendarDay.getTime()).toString();
-        h.postDelayed(new Runnable(){ // update the current time every minute
-            public void run(){
-                currentTime = simpleFormatter.format(calendarDay.getTime()).toString();
-                System.out.println("current time is " + currentTime);
-                h.postDelayed(this, 60000);
-            }
-        }, 60000);
 
         map.setLatLngBoundsForCameraTarget(CONNECTICUT);
         map.animateCamera(CameraUpdateFactory.newCameraPosition(CONNECTICUT_CAMERA));
@@ -475,7 +466,7 @@ public class MapsActivity extends AppCompatActivity
         String prevHeadsign = "initial2";
         int m = 0;
 
-        //info = new StringBuilder("");
+        info = new StringBuilder("");
         for (stopTime stop : stopTimes) { // for each stop in the stopTimes array, append the relevant stop arrival and destination times
             if (stop.getStop_id().intValue() == id) {
                 for(int i = 0; i < trips.size(); i++){
@@ -492,7 +483,17 @@ public class MapsActivity extends AppCompatActivity
 
                         final Button myButton = new Button(this); // Buttons will have to be dynamically added into the scrollview instead of regular text to make the route / busStop selectable from the infoBox
                         myButton.setText("Departure: " + stop.getDeparture_time());
-                        if (stop.getDeparture_time().compareTo(currentTime) < 0) {
+
+                        Calendar departureTime = Calendar.getInstance();
+                        try {
+                            departureTime.setTime(simpleFormatter.parse(stop.getDeparture_time()));// all done
+                        }
+                        catch (ParseException e)
+                        {
+                            e.printStackTrace();
+                        }
+
+                        if (departureTime.before(calendarDay.getTime())) {
                             myButton.setTextAppearance(this, android.R.style.TextAppearance_Small);
                             myButton.setPaintFlags(myButton.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                             myButton.setClickable(false);
