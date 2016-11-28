@@ -19,9 +19,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.ProgressDialog;
 import android.content.res.AssetManager;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Point;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -30,12 +30,14 @@ import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.io.*;
@@ -44,6 +46,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by Richard on 10/30/2016
@@ -76,7 +79,9 @@ public class MapsActivity extends AppCompatActivity
     private GoogleMap currentMap;
     private TextView infoBox;
     private StringBuilder info;
+    private Calendar calendarDay;
     private int currentDay;
+    private String currentTime;
     private int service_id;
     private int routeIndex;
     private String[] GTFSinfo;
@@ -111,11 +116,10 @@ public class MapsActivity extends AppCompatActivity
 
     final Handler h = new Handler();
     final int delay = 30000; // update every 30 seconds
+    final SimpleDateFormat simpleFormatter = new SimpleDateFormat("HH:mm:ss");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        //new JsonTask().execute("http://65.213.12.244/realtimefeed/vehicle/vehiclepositions.json");
 
 
         AssetManager am = getAssets(); // gets files from assets folder
@@ -130,7 +134,7 @@ public class MapsActivity extends AppCompatActivity
                 GTFSinfo = line.split(",");
                 calendars.add(new calendar(Integer.parseInt(GTFSinfo[0]),Integer.parseInt(GTFSinfo[1]),Integer.parseInt(GTFSinfo[2]),Integer.parseInt(GTFSinfo[3]),Integer.parseInt(GTFSinfo[4]),Integer.parseInt(GTFSinfo[5]),Integer.parseInt(GTFSinfo[6]),Integer.parseInt(GTFSinfo[7]),Integer.parseInt(GTFSinfo[8]),Integer.parseInt(GTFSinfo[9])));
             }
-            Calendar calendarDay = Calendar.getInstance();
+            calendarDay = Calendar.getInstance();
             currentDay = calendarDay.get(Calendar.DAY_OF_WEEK); // 1 = Sunday, ... , 7 = Saturday
             if(currentDay > 1 && currentDay < 7) // Weekday schedule. This should not be hardcoded!!!
             {
@@ -238,6 +242,38 @@ public class MapsActivity extends AppCompatActivity
         mapFragment.getMapAsync(this);
         infoBox = (TextView)findViewById(R.id.textView);
 
+        View toolbar = ((View) findViewById(R.id.map).getRootView().findViewById(Integer.parseInt("1")).
+                getParent()).findViewById(Integer.parseInt("4"));
+
+        // and next place it, for example, on bottom right (as Google Maps app)
+        RelativeLayout.LayoutParams rlp = (RelativeLayout.LayoutParams) toolbar.getLayoutParams();
+        // position on right bottom
+        rlp.addRule(RelativeLayout.ALIGN_PARENT_TOP, 0);
+        rlp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+        rlp.setMargins(0, 0, 0, 0); // left, top, right, bottom
+
+    }
+
+    @Override
+    public void onMapReady(GoogleMap map) {
+
+        currentTime = simpleFormatter.format(calendarDay.getTime()).toString();
+        h.postDelayed(new Runnable(){ // update the current time every minute
+            public void run(){
+                currentTime = simpleFormatter.format(calendarDay.getTime()).toString();
+                System.out.println("current time is " + currentTime);
+                h.postDelayed(this, 60000);
+            }
+        }, 60000);
+
+        map.setLatLngBoundsForCameraTarget(CONNECTICUT);
+        map.animateCamera(CameraUpdateFactory.newCameraPosition(CONNECTICUT_CAMERA));
+        map.setMinZoomPreference(mMinZoom);
+        map.setMaxZoomPreference(mMaxZoom);
+
+        currentMap = map;
+        lineSelected = false;
+
         /* POLYLINES FOR ROUTES */
         for (route busRoute : routes) { // for each busRoute in the routes arraylist, we take the route_id, match it with the corresponding route_id in the trips arraylist, then match it with the correct shape_id so we can add all the vertices of a route to the map
             for (int i = 0; i < trips.size(); i++) {
@@ -255,28 +291,134 @@ public class MapsActivity extends AppCompatActivity
             color.append("#FF" + busRoute.getRoute_color()); // Colors in text are stored as 16 bit hex. Convert to 32 bit with the leading to hex digits being the Alpha (transparency) value. FF = 100% 80 = 50%
             String stringColor = color.toString();
             polylineOptions.add(new PolylineOptions().addAll(coordinates).width(10).color(Color.parseColor(stringColor)).clickable(true));
+            polylines.add(map.addPolyline(polylineOptions.get(polylineOptions.size()-1)));
+
             coordinates.clear();
-        }
-    }
-
-
-
-    @Override
-    public void onMapReady(GoogleMap map) {
-
-        map.setLatLngBoundsForCameraTarget(CONNECTICUT);
-        map.animateCamera(CameraUpdateFactory.newCameraPosition(CONNECTICUT_CAMERA));
-        map.setMinZoomPreference(mMinZoom);
-        map.setMaxZoomPreference(mMaxZoom);
-
-        currentMap = map;
-        lineSelected = false;
-
-        for (int i = 0; i < polylineOptions.size(); i++) {
-            polylines.add(map.addPolyline(polylineOptions.get(i)));
         }
 
         /* LIST OF ROUTES IN INFOBOX */
+        displayRouteButtons();
+
+        /* DISPLAY BUS STOPS ON POLYLINE CLICK */
+        //Requires a lot of tinkering!
+        map.setOnPolylineClickListener(new GoogleMap.OnPolylineClickListener() { // Add a listener for polyline clicks
+            @Override
+            public void onPolylineClick(Polyline polyline) {
+                selectPolyline(polyline);
+            }
+        });
+
+        /* DESELECT ROUTE ON MAP CLICK */
+        map.setOnMapClickListener(new GoogleMap.OnMapClickListener(){ // Add listener for map click
+            @Override
+            public void onMapClick(LatLng latLng) {
+                System.out.println("The map was clicked");
+                if(lineSelected == true) {
+                    clearMarkersOnMap();
+                    buttonList.removeAllViews();
+                    info = new StringBuilder("");
+                    infoBox.setText(info);
+                    displayRouteButtons();
+                    for (int i = 0; i < polylines.size(); i++) {
+                        setPolylineHighlighting(i,'F','F',10,0);
+                    }
+                    lineSelected = false;
+                }
+            }
+        });
+
+        // Set a listener for marker click.
+        map.setOnInfoWindowClickListener(this);
+
+    }
+
+    public void clearMarkersOnMap(){
+        for(Marker marker : markers) {
+            marker.remove();
+        }
+        for(Marker busMarker : busMarkers) {
+            busMarker.remove();
+        }
+        markers.clear();
+        busMarkers.clear();
+    }
+
+    public void setPolylineHighlighting(int index, char alpha1, char alpha2, int width, int zIndex){
+        String hexColor = String.format("#%08X", (0xFFFFFFFF & polylineOptions.get(index).getColor()));
+        char[] color = hexColor.toCharArray();
+        color[1] = alpha1;
+        color[2] = alpha2;
+        String stringColor = new String(color);
+        polylines.get(index).setColor(Color.parseColor(stringColor));
+        polylines.get(index).setWidth(width);
+        polylines.get(index).setZIndex(zIndex);
+    }
+
+    public void selectPolyline(Polyline polyline) {
+        System.out.println("Polyline selected: " + polyline.getId());
+        buttonList.removeAllViews();
+        info = new StringBuilder("");
+        clearMarkersOnMap();
+        int i = 0;
+        for (int j = 0; j < polylines.size(); j++) {
+            if(polyline.hashCode() != polylines.get(j).hashCode()){
+                setPolylineHighlighting(j,'8','0',6,0); // makes the polylines not selected less visible
+            }
+            else{
+                setPolylineHighlighting(j,'F','F',14,1); // make the selected polyline most visible
+                //System.out.println("This route_id is " + routes.get(j).getRoute_id());
+                for (int k = 0; k < trips.size(); k++) {
+                    if (trips.get(k).getRoute_id().intValue() == routes.get(j).getRoute_id().intValue() && trips.get(k).getService_id().intValue() == service_id) {
+                        //System.out.println("Trip " + trips.get(k).getRoute_id() + " has been found on this route");
+                        for (int m = 0; m < stopTimes.size(); m++) {
+                            if (stopTimes.get(m).getTrip_id().intValue() == trips.get(k).getTrip_id().intValue()) {
+                                //System.out.println("Stop time found");
+                                for (int n = 0; n < busStops.size(); n++) {
+                                    if (busStops.get(n).getStop_id().intValue() == stopTimes.get(m).getStop_id().intValue()) {
+                                        //System.out.println("Marker added");
+                                        markers.add(currentMap.addMarker(new MarkerOptions().position(new LatLng(busStops.get(n).getStop_lat(), busStops.get(n).getStop_lon())).title(busStops.get(n).getStop_name())));
+                                        markers.get(markers.size()-1).setTag(n);
+                                        lineSelected = true;
+                                        final Button myButton = new Button(this); // Buttons will have to be dynamically added into the scrollview instead of regular text to make the route / busStop selectable from the infoBox
+                                        myButton.setText("Bus Stop: " + busStops.get(n).getStop_name());
+                                        myButton.setId(i);
+                                        myButton.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
+                                                System.out.println(myButton.getText() + " was pressed");
+                                                onInfoWindowClick(markers.get(myButton.getId()));
+                                            }
+                                            });
+                                            buttonList.addView(myButton, layoutParameters);
+                                            i++;
+                                    }
+                                }
+                            }
+                        }
+                        routeIndex = j;
+                        busMarkers.clear();
+                        busMarkersIds.clear();
+                        showBusesOnRoute(routeIndex);
+                        RTinfoUpdated = 1;
+                        h.postDelayed(new Runnable(){
+                            public void run(){
+                                showBusesOnRoute(routeIndex);
+                                h.postDelayed(this, delay);
+                            }
+                        }, delay);
+
+                        info.append("Route: " + routes.get(j).getRoute_short_name() + "\n");
+                        info.append("# of buses active on this route : " + busMarkers.size() + "\n");
+                        break;
+                    }
+                }
+            }
+        }
+        //System.out.println("lineSelected change to " + lineSelected);
+        infoBox.setText(info);
+    }
+
+    public void displayRouteButtons(){
         buttonList = (LinearLayout)findViewById(R.id.buttonList);
         layoutParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         for(int i = 0; i < routes.size(); i++)
@@ -294,113 +436,12 @@ public class MapsActivity extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     System.out.println(myButton.getText() + " was pressed");
-                        selectPolyline(polylines.get(myButton.getId()));
+                    selectPolyline(polylines.get(myButton.getId()));
                 }
             });
 
             buttonList.addView(myButton, layoutParameters);
         }
-
-        /* DISPLAY BUS STOPS ON POLYLINE CLICK */
-        //Requires a lot of tinkering!
-        map.setOnPolylineClickListener(new GoogleMap.OnPolylineClickListener() { // Add a listener for polyline clicks
-            @Override
-            public void onPolylineClick(Polyline polyline) {
-                selectPolyline(polyline);
-            }
-        });
-
-        // Set a listener for marker click.
-        map.setOnInfoWindowClickListener(this);
-
-    }
-
-    public void selectPolyline(Polyline polyline) {
-        System.out.println("Polyline selected: " + polyline.getId());
-        buttonList.removeAllViews();
-        info = new StringBuilder("");
-            System.out.println("# of markers before removal: " + markers.size());
-            for(Marker marker : markers) {
-                marker.remove();
-            }
-            for(Marker busMarker : busMarkers) {
-                busMarker.remove();
-            }
-            System.out.println("# of markers before clear: " + markers.size());
-            markers.clear();
-            busMarkers.clear();
-            System.out.println("# of markers after clear: " + markers.size());
-            int i = 0;
-            for (int j = 0; j < polylineOptions.size(); j++) {
-                String hexColor = String.format("#%08X", (0xFFFFFFFF & polylineOptions.get(j).getColor()));
-                char[] color = hexColor.toCharArray();
-                if(polyline.hashCode() != polylines.get(j).hashCode()){
-                    color[1] = '8';
-                    color[2] = '0';
-                    String stringColor = new String(color);
-                    polylines.get(j).setColor(Color.parseColor(stringColor));
-                    polylines.get(j).setWidth(6);
-                }
-                else{
-                    color[1] = 'F';
-                    color[2] = 'F';
-                    String stringColor = new String(color);
-                    polylines.get(j).setColor(Color.parseColor(stringColor));
-                    polylines.get(j).setWidth(13);
-                    //System.out.println("This route_id is " + routes.get(j).getRoute_id());
-
-                    for (int k = 0; k < trips.size(); k++) {
-                        if (trips.get(k).getRoute_id().intValue() == routes.get(j).getRoute_id().intValue() && trips.get(k).getService_id().intValue() == service_id) {
-                            //System.out.println("Trip " + trips.get(k).getRoute_id() + " has been found on this route");
-                            for (int m = 0; m < stopTimes.size(); m++) {
-                                if (stopTimes.get(m).getTrip_id().intValue() == trips.get(k).getTrip_id().intValue()) {
-                                    //System.out.println("Stop time found");
-                                    for (int n = 0; n < busStops.size(); n++) {
-                                        if (busStops.get(n).getStop_id().intValue() == stopTimes.get(m).getStop_id().intValue()) {
-                                            //System.out.println("Marker added");
-                                            markers.add(currentMap.addMarker(new MarkerOptions().position(new LatLng(busStops.get(n).getStop_lat(), busStops.get(n).getStop_lon())).title(busStops.get(n).getStop_name())));
-                                            markers.get(markers.size()-1).setTag(n);
-                                            //lineSelected = true;
-
-                                            final Button myButton = new Button(this); // Buttons will have to be dynamically added into the scrollview instead of regular text to make the route / busStop selectable from the infoBox
-                                            myButton.setText("Bus Stop: " + busStops.get(n).getStop_name());
-                                            myButton.setId(i);
-
-                                            myButton.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View view) {
-                                                    System.out.println(myButton.getText() + " was pressed");
-                                                    // Do something
-                                                }
-                                            });
-
-                                            buttonList.addView(myButton, layoutParameters);
-
-                                            i++;
-                                        }
-                                    }
-                                }
-                            };
-                            routeIndex = j;
-                            busMarkers.clear();
-                            busMarkersIds.clear();
-                            showBusesOnRoute(routeIndex);
-                            RTinfoUpdated = 1;
-                            h.postDelayed(new Runnable(){
-                                public void run(){
-                                    showBusesOnRoute(routeIndex);
-                                    h.postDelayed(this, delay);
-                                }
-                            }, delay);
-                            info.append("Route: " + routes.get(j).getRoute_short_name() + "\n");
-                            info.append("# of buses active on this route : " + busMarkers.size() + "\n");
-                            break;
-                        }
-                    }
-                }
-            }
-            //System.out.println("lineSelected change to " + lineSelected);
-            infoBox.setText(info);
     }
 
 
@@ -424,28 +465,60 @@ public class MapsActivity extends AppCompatActivity
 
     @Override
     public void onInfoWindowClick(Marker marker) {
+        buttonList.removeAllViews();
+
+        currentMap.animateCamera(CameraUpdateFactory.newLatLng(marker.getPosition()));
+        marker.showInfoWindow();
         Integer markerId = (Integer) marker.getTag(); //We need to get the relevant busStop info knowing which markerTag was selected
         int id = busStops.get(markerId).getStop_id();
         String headsign = "initial1";
         String prevHeadsign = "initial2";
+        int m = 0;
 
-        info = new StringBuilder("");
+        //info = new StringBuilder("");
         for (stopTime stop : stopTimes) { // for each stop in the stopTimes array, append the relevant stop arrival and destination times
             if (stop.getStop_id().intValue() == id) {
                 for(int i = 0; i < trips.size(); i++){
                     if(trips.get(i).getTrip_id().intValue() == stop.getTrip_id().intValue() && trips.get(i).getService_id().intValue() == service_id){
                         headsign = trips.get(i).getTrip_headsign();
                         if(!(headsign.equals(prevHeadsign))) { // The logic here assumes that headsigns are grouped together in GTFS file, which it isn't, so the logic has to be modified here
-                            info.append("Route: " + trips.get(i).getTrip_headsign() + "\n");
+                            final TextView myTextView = new TextView(this);
+                            myTextView.setText("Route: " + trips.get(i).getTrip_headsign());
+                            myTextView.setGravity(Gravity.CENTER);
+                            myTextView.setTextAppearance(this, android.R.style.TextAppearance_Large);
+                            buttonList.addView(myTextView, layoutParameters);
                         }
                         prevHeadsign = headsign;
-                        info.append("Arrival: " + stop.getArrival_time() + " Departure: " + stop.getDeparture_time() + "\n");
+
+                        final Button myButton = new Button(this); // Buttons will have to be dynamically added into the scrollview instead of regular text to make the route / busStop selectable from the infoBox
+                        myButton.setText("Departure: " + stop.getDeparture_time());
+                        if (stop.getDeparture_time().compareTo(currentTime) < 0) {
+                            myButton.setTextAppearance(this, android.R.style.TextAppearance_Small);
+                            myButton.setPaintFlags(myButton.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                            myButton.setClickable(false);
+                        }
+                        else {
+
+                            myButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    System.out.println(myButton.getText() + " was pressed");
+                                    // Do something
+                                }
+                            });
+                        }
+
+                        myButton.setId(m);
+
+                        buttonList.addView(myButton, layoutParameters);
+                        m++;
+
                         break;
                     }
                 }
             }
         }
-        infoBox.setText(info);
+        //infoBox.setText(info);
     }
 
 
@@ -453,14 +526,10 @@ public class MapsActivity extends AppCompatActivity
 
 
     private class JsonTask extends AsyncTask<String, String, String> { // all JSON parsing logic goes here
-
         protected void onPreExecute() {
             super.onPreExecute();
         }
-
         protected String doInBackground(String... params) {
-
-
             HttpURLConnection connection = null;
             BufferedReader reader = null;
 
@@ -468,7 +537,6 @@ public class MapsActivity extends AppCompatActivity
                 URL url = new URL(params[0]);
                 connection = (HttpURLConnection) url.openConnection();
                 connection.connect();
-
 
                 InputStream stream = connection.getInputStream();
 
@@ -485,7 +553,6 @@ public class MapsActivity extends AppCompatActivity
                 //JSONData = buffer.toString();
 
                 return buffer.toString();
-
 
             } catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -587,11 +654,8 @@ public class MapsActivity extends AppCompatActivity
     public void showBusesOnRoute(int routeIndex)
     {
         ArrayList<String> busIDsOnRoute = new ArrayList<String>();
-
         new JsonTask().execute("http://65.213.12.244/realtimefeed/vehicle/vehiclepositions.json");
-
         System.out.println("# of buses out there: " + realtimeBuses.size());
-
         if(realtimeBuses.size()!= 0) {
 
             for(int i = 0; i < realtimeBuses.size(); i++) // Get an array of all buses on route
@@ -615,7 +679,6 @@ public class MapsActivity extends AppCompatActivity
                                 }
                     }
                     else {
-                        //animateMarker(busMarkers.get(i), new LatLng(0, 0), true);
                         busMarkers.get(i).setVisible(false);
                         busMarkers.remove(i); // remove a bus that has disappeared
                     }
@@ -672,4 +735,3 @@ public class MapsActivity extends AppCompatActivity
         });
     }
 }
-
