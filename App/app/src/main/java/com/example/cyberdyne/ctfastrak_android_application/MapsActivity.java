@@ -66,7 +66,7 @@ import java.util.concurrent.TimeUnit;
  *      Implement Search Bar
  *  Bart:
  *      Display and center on user location
- *      Progress bar on startup
+ *      Progress dialog
  */
 
 public class MapsActivity extends AppCompatActivity
