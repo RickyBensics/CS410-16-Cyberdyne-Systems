@@ -19,6 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.ProgressDialog;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -48,6 +49,9 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Richard on 10/30/2016
@@ -62,6 +66,7 @@ import java.text.SimpleDateFormat;
  *      Implement Search Bar
  *  Bart:
  *      Display and center on user location
+ *      Progress bar on startup
  */
 
 public class MapsActivity extends AppCompatActivity
@@ -85,14 +90,20 @@ public class MapsActivity extends AppCompatActivity
     private int service_id;
     private int routeIndex;
     private String[] GTFSinfo;
+    private int selectedPolyline;
 
     private String JSONData;
     private JSONObject obj, vehiclePosition, vehicle, position, trip;
     private JSONArray entity;
     private int RTinfoUpdated=0;
     private LinearLayout buttonList;
+    private LinearLayout arrivalAndDeparture;
     private LinearLayout.LayoutParams layoutParameters;
 
+    private busStop departureLocation;
+    private busStop arrivalLocation;
+
+    private ProgressDialog myProgress;
 
     ArrayList<LatLng> coordinates = new ArrayList<LatLng>();
     ArrayList<Integer> shape_ids = new ArrayList<Integer>();
@@ -118,118 +129,45 @@ public class MapsActivity extends AppCompatActivity
     final int delay = 30000; // update every 30 seconds
     final SimpleDateFormat simpleFormatter = new SimpleDateFormat("HH:mm:ss");
 
+    class AsyncData extends AsyncTask<Void, Void, Void>{
+
+        public AsyncData(ProgressDialog progress){
+            myProgress = progress;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            myProgress.show();
+        }
+
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            // get data
+            loadGTFSInfo();
+            return null;
+        }
+
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            myProgress.setMessage("making final adjustments");
+            enableInteraction(); // progress dialog box will freeze for a few seconds. This method has functions that must be done on the UI thread
+            myProgress.dismiss();
+
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-        AssetManager am = getAssets(); // gets files from assets folder
-        InputStreamReader ims = null;
-        BufferedReader reader = null;
-        String line;
-        try {
-            ims = new InputStreamReader(am.open("calendar.txt"), "UTF-8");
-            reader = new BufferedReader(ims);
-            reader.readLine();
-            while ((line = reader.readLine()) != null) {
-                GTFSinfo = line.split(",");
-                calendars.add(new calendar(Integer.parseInt(GTFSinfo[0]),Integer.parseInt(GTFSinfo[1]),Integer.parseInt(GTFSinfo[2]),Integer.parseInt(GTFSinfo[3]),Integer.parseInt(GTFSinfo[4]),Integer.parseInt(GTFSinfo[5]),Integer.parseInt(GTFSinfo[6]),Integer.parseInt(GTFSinfo[7]),Integer.parseInt(GTFSinfo[8]),Integer.parseInt(GTFSinfo[9])));
-            }
-            calendarDay = Calendar.getInstance();
-            currentDay = calendarDay.get(Calendar.DAY_OF_WEEK); // 1 = Sunday, ... , 7 = Saturday
-            if(currentDay > 1 && currentDay < 7) // Weekday schedule. This should not be hardcoded!!!
-            {
-                service_id = 1;
-            }
-            else if (currentDay == 7) // Saturday
-            {
-                service_id = 2;
-            }
-            else
-            {
-                service_id = 3; // Sunday
-            }
-            //service_id = 1;
-            System.out.println("the current day is: " + service_id);
-
-            ims = new InputStreamReader(am.open("trips.txt"), "UTF-8");
-            reader = new BufferedReader(ims);
-            reader.readLine();
-            while ((line = reader.readLine()) != null) {
-                GTFSinfo = line.split(",");
-                if(Integer.parseInt(GTFSinfo[1]) == service_id) // Only add the trips happenening on this day. This should improve time and memory
-                {
-                    if(!shape_ids.contains(Integer.parseInt(GTFSinfo[6])))
-                    {
-                        shape_ids.add(Integer.parseInt(GTFSinfo[6]));
-                    }
-                    trip_ids.add(Integer.parseInt(GTFSinfo[2]));
-                    trips.add(new trip(Integer.parseInt(GTFSinfo[0]), Integer.parseInt(GTFSinfo[1]), Integer.parseInt(GTFSinfo[2]), GTFSinfo[3], Integer.parseInt(GTFSinfo[4]), GTFSinfo[5], Integer.parseInt(GTFSinfo[6])));
-                }
-            }
-            System.out.println("Number of trips: " + trips.size());
-
-            ims = new InputStreamReader(am.open("shapes.txt"), "UTF-8");
-            reader = new BufferedReader(ims);
-            reader.readLine();
-            while ((line = reader.readLine()) != null) {
-                GTFSinfo = line.split(",");
-                if(shape_ids.contains(Integer.parseInt(GTFSinfo[0]))) // Only add the shapes for the added trips
-                {
-                    shapes.add(new shape(Integer.parseInt(GTFSinfo[0]), Double.parseDouble(GTFSinfo[1]), Double.parseDouble(GTFSinfo[2]), Integer.parseInt(GTFSinfo[3]), Double.parseDouble(GTFSinfo[4])));
-                }
-            }
-            System.out.println("Number of vertices: " + shapes.size());
-
-            ims = new InputStreamReader(am.open("stop_times.txt"), "UTF-8"); // reads stop_times.txt and puts  comma separated values into arrayList of busStop objects
-            reader = new BufferedReader(ims);
-            reader.readLine(); // skip the first line of the text file
-            while ((line = reader.readLine()) != null) {
-                GTFSinfo = line.split(",");
-                if(trip_ids.contains(Integer.parseInt(GTFSinfo[0]))) {
-                    if(!stop_ids.contains(Integer.parseInt(GTFSinfo[3])))
-                    {
-                        stop_ids.add(Integer.parseInt(GTFSinfo[3]));
-                    }
-                    stopTimes.add(new stopTime(Integer.parseInt(GTFSinfo[0]), GTFSinfo[1], GTFSinfo[2], Integer.parseInt(GTFSinfo[3]), null, null, null, null, null)); // !!! Fix these null values
-                }
-            }
-            System.out.println("Number of stop times: " + stopTimes.size());
-
-            ims = new InputStreamReader(am.open("stops.txt"), "UTF-8"); // reads stops.txt and puts  comma separated values into arrayList of busStop objects
-            reader = new BufferedReader(ims);
-            reader.readLine(); // skip the first line of the text file
-            while ((line = reader.readLine()) != null) {
-                GTFSinfo = line.split(",");
-                if(stop_ids.contains(Integer.parseInt(GTFSinfo[0])))
-                {
-                    busStops.add(new busStop(Integer.parseInt(GTFSinfo[0]), null, GTFSinfo[2], Double.parseDouble(GTFSinfo[3]), Double.parseDouble(GTFSinfo[4]), null, null, null, null)); // comma separated values stored in text file
-                }
-            }
-            System.out.println("Number of stops: " + busStops.size());
-
-            ims = new InputStreamReader(am.open("routes.txt"), "UTF-8");
-            reader = new BufferedReader(ims);
-            reader.readLine();
-            while ((line = reader.readLine()) != null) {
-                String[] info = line.split(",");
-                for(trip busTrip : trips)
-                    if(busTrip.getRoute_id().intValue() == Integer.parseInt(info[0])) {
-                        routes.add(new route(Integer.parseInt(info[0]), null, info[2], null, null, Integer.parseInt(info[5]), null, info[7], info[8]));
-                        break;
-                    }
-            }
-
-            ims = new InputStreamReader(am.open("calendar_dates.txt"), "UTF-8"); // These are exceptions to the regular calendar. It is not implemented yet
-            reader = new BufferedReader(ims);
-            reader.readLine();
-            while ((line = reader.readLine()) != null && line.length() != 0) { // the file had a newline character at the end
-                String[] info = line.split(",");
-                calendar_dates.add(new calendar_date(Integer.parseInt(info[0]), Integer.parseInt(info[1]), Integer.parseInt(info[2])));
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace(); // an error occurred reading file
-        }
-
+        myProgress = new ProgressDialog(this);
+        myProgress.setTitle("Map Loading ...");
+        myProgress.setMessage("Please wait...");
+        myProgress.setCancelable(false);
+        new AsyncData(myProgress).execute(); // While the GTFS info is loaded during the AsyncTask, the rest of the code, all the way up to the end of onMapReady is executed.
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
@@ -245,7 +183,8 @@ public class MapsActivity extends AppCompatActivity
         View toolbar = ((View) findViewById(R.id.map).getRootView().findViewById(Integer.parseInt("1")).
                 getParent()).findViewById(Integer.parseInt("4"));
 
-        // and next place it, for example, on bottom right (as Google Maps app)
+
+        // trying to move around the maps toolbar. Not working right now
         RelativeLayout.LayoutParams rlp = (RelativeLayout.LayoutParams) toolbar.getLayoutParams();
         // position on right bottom
         rlp.addRule(RelativeLayout.ALIGN_PARENT_TOP, 0);
@@ -263,6 +202,177 @@ public class MapsActivity extends AppCompatActivity
         map.setMaxZoomPreference(mMaxZoom);
 
         currentMap = map;
+    }
+
+    public void loadGTFSInfo(){
+        AssetManager am = getAssets(); // gets files from assets folder
+        InputStreamReader ims = null;
+        BufferedReader reader = null;
+        String line;
+        try {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    myProgress.setMessage("loading calendar information...");
+
+                }
+            });
+            ims = new InputStreamReader(am.open("calendar.txt"), "UTF-8");
+            reader = new BufferedReader(ims);
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                GTFSinfo = line.split(",");
+                calendars.add(new calendar(Integer.parseInt(GTFSinfo[0]),Integer.parseInt(GTFSinfo[1]),Integer.parseInt(GTFSinfo[2]),Integer.parseInt(GTFSinfo[3]),Integer.parseInt(GTFSinfo[4]),Integer.parseInt(GTFSinfo[5]),Integer.parseInt(GTFSinfo[6]),Integer.parseInt(GTFSinfo[7]),Integer.parseInt(GTFSinfo[8]),Integer.parseInt(GTFSinfo[9])));
+            }
+            calendarDay = Calendar.getInstance();
+
+            currentDay = calendarDay.get(Calendar.DAY_OF_WEEK); // 1 = Sunday, ... , 7 = Saturday
+            if(currentDay > 1 && currentDay < 7) // Weekday schedule. This should not be hardcoded!!!
+            {
+                service_id = 1;
+            }
+            else if (currentDay == 7) // Saturday
+            {
+                service_id = 2;
+            }
+            else
+            {
+                service_id = 3; // Sunday
+            }
+            System.out.println("the current day is: " + service_id);
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    myProgress.setMessage("loading trips information...");
+
+                }
+            });
+            ims = new InputStreamReader(am.open("trips.txt"), "UTF-8");
+            reader = new BufferedReader(ims);
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                GTFSinfo = line.split(",");
+                if (Integer.parseInt(GTFSinfo[1]) == service_id) // Only add the trips happenening on this day. This should improve time and memory
+                {
+                    if (!shape_ids.contains(Integer.parseInt(GTFSinfo[6]))) {
+                        shape_ids.add(Integer.parseInt(GTFSinfo[6]));
+                    }
+                    trip_ids.add(Integer.parseInt(GTFSinfo[2]));
+                    trips.add(new trip(Integer.parseInt(GTFSinfo[0]), Integer.parseInt(GTFSinfo[1]), Integer.parseInt(GTFSinfo[2]), GTFSinfo[3], Integer.parseInt(GTFSinfo[4]), GTFSinfo[5], Integer.parseInt(GTFSinfo[6])));
+                }
+            }
+            System.out.println("Number of trips: " + trips.size());
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    myProgress.setMessage("loading shapes information...");
+
+                }
+            });
+            ims = new InputStreamReader(am.open("shapes.txt"), "UTF-8");
+            reader = new BufferedReader(ims);
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                GTFSinfo = line.split(",");
+                if (shape_ids.contains(Integer.parseInt(GTFSinfo[0]))) // Only add the shapes for the added trips
+                {
+                    shapes.add(new shape(Integer.parseInt(GTFSinfo[0]), Double.parseDouble(GTFSinfo[1]), Double.parseDouble(GTFSinfo[2]), Integer.parseInt(GTFSinfo[3]), Double.parseDouble(GTFSinfo[4])));
+                }
+            }
+            System.out.println("Number of vertices: " + shapes.size());
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    myProgress.setMessage("loading stop times information...");
+
+                }
+            });
+            ims = new InputStreamReader(am.open("stop_times.txt"), "UTF-8"); // reads stop_times.txt and puts  comma separated values into arrayList of busStop objects
+            reader = new BufferedReader(ims);
+            reader.readLine(); // skip the first line of the text file
+            while ((line = reader.readLine()) != null) {
+                GTFSinfo = line.split(",");
+                if (trip_ids.contains(Integer.parseInt(GTFSinfo[0]))) {
+                    if (!stop_ids.contains(Integer.parseInt(GTFSinfo[3]))) {
+                        stop_ids.add(Integer.parseInt(GTFSinfo[3]));
+                    }
+                    if(GTFSinfo.length == 9)
+                        stopTimes.add(new stopTime(Integer.parseInt(GTFSinfo[0]), GTFSinfo[1], GTFSinfo[2], Integer.parseInt(GTFSinfo[3]), Integer.parseInt(GTFSinfo[4]), null, Integer.parseInt(GTFSinfo[6]), Integer.parseInt(GTFSinfo[7]), Double.parseDouble(GTFSinfo[8])));
+                    else
+                        stopTimes.add(new stopTime(Integer.parseInt(GTFSinfo[0]), GTFSinfo[1], GTFSinfo[2], Integer.parseInt(GTFSinfo[3]), Integer.parseInt(GTFSinfo[4]), null, Integer.parseInt(GTFSinfo[6]), Integer.parseInt(GTFSinfo[7]), null));
+                }
+            }
+            System.out.println("Number of stop times: " + stopTimes.size());
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    myProgress.setMessage("loading stops information...");
+
+                }
+            });
+            ims = new InputStreamReader(am.open("stops.txt"), "UTF-8"); // reads stops.txt and puts  comma separated values into arrayList of busStop objects
+            reader = new BufferedReader(ims);
+            reader.readLine(); // skip the first line of the text file
+            while ((line = reader.readLine()) != null) {
+                GTFSinfo = line.split(",");
+                if (stop_ids.contains(Integer.parseInt(GTFSinfo[0]))) {
+                    busStops.add(new busStop(Integer.parseInt(GTFSinfo[0]), null, GTFSinfo[2], Double.parseDouble(GTFSinfo[3]), Double.parseDouble(GTFSinfo[4]), null, null, null, null)); // comma separated values stored in text file
+                }
+            }
+            System.out.println("Number of stops: " + busStops.size());
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    myProgress.setMessage("loading routes information...");
+
+                }
+            });
+            ims = new InputStreamReader(am.open("routes.txt"), "UTF-8");
+            reader = new BufferedReader(ims);
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                String[] info = line.split(",");
+                for (trip busTrip : trips)
+                    if (busTrip.getRoute_id().intValue() == Integer.parseInt(info[0])) {
+                        routes.add(new route(Integer.parseInt(info[0]), null, info[2], null, null, Integer.parseInt(info[5]), null, info[7], info[8]));
+                        break;
+                    }
+            }
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    myProgress.setMessage("loading calendar dates information...");
+
+                }
+            });
+            ims = new InputStreamReader(am.open("calendar_dates.txt"), "UTF-8"); // These are exceptions to the regular calendar. It is not implemented yet
+            reader = new BufferedReader(ims);
+            reader.readLine();
+            while ((line = reader.readLine()) != null && line.length() != 0) { // the file had a newline character at the end
+                String[] info = line.split(",");
+                calendar_dates.add(new calendar_date(Integer.parseInt(info[0]), Integer.parseInt(info[1]), Integer.parseInt(info[2])));
+            }
+
+        } catch (IOException ex) {
+            ex.printStackTrace(); // an error occurred reading file
+        }
+    }
+
+    public void enableInteraction(){
+
         lineSelected = false;
 
         /* POLYLINES FOR ROUTES */
@@ -282,7 +392,7 @@ public class MapsActivity extends AppCompatActivity
             color.append("#FF" + busRoute.getRoute_color()); // Colors in text are stored as 16 bit hex. Convert to 32 bit with the leading to hex digits being the Alpha (transparency) value. FF = 100% 80 = 50%
             String stringColor = color.toString();
             polylineOptions.add(new PolylineOptions().addAll(coordinates).width(10).color(Color.parseColor(stringColor)).clickable(true));
-            polylines.add(map.addPolyline(polylineOptions.get(polylineOptions.size()-1)));
+            polylines.add(currentMap.addPolyline(polylineOptions.get(polylineOptions.size()-1)));
 
             coordinates.clear();
         }
@@ -292,7 +402,7 @@ public class MapsActivity extends AppCompatActivity
 
         /* DISPLAY BUS STOPS ON POLYLINE CLICK */
         //Requires a lot of tinkering!
-        map.setOnPolylineClickListener(new GoogleMap.OnPolylineClickListener() { // Add a listener for polyline clicks
+        currentMap.setOnPolylineClickListener(new GoogleMap.OnPolylineClickListener() { // Add a listener for polyline clicks
             @Override
             public void onPolylineClick(Polyline polyline) {
                 selectPolyline(polyline);
@@ -300,7 +410,7 @@ public class MapsActivity extends AppCompatActivity
         });
 
         /* DESELECT ROUTE ON MAP CLICK */
-        map.setOnMapClickListener(new GoogleMap.OnMapClickListener(){ // Add listener for map click
+        currentMap.setOnMapClickListener(new GoogleMap.OnMapClickListener(){ // Add listener for map click
             @Override
             public void onMapClick(LatLng latLng) {
                 System.out.println("The map was clicked");
@@ -319,8 +429,7 @@ public class MapsActivity extends AppCompatActivity
         });
 
         // Set a listener for marker click.
-        map.setOnInfoWindowClickListener(this);
-
+        currentMap.setOnInfoWindowClickListener(this);
     }
 
     public void clearMarkersOnMap(){
@@ -400,6 +509,7 @@ public class MapsActivity extends AppCompatActivity
 
                         info.append("Route: " + routes.get(j).getRoute_short_name() + "\n");
                         info.append("# of buses active on this route : " + busMarkers.size() + "\n");
+                        selectedPolyline = routes.get(j).getRoute_id().intValue();
                         break;
                     }
                 }
@@ -461,70 +571,132 @@ public class MapsActivity extends AppCompatActivity
         currentMap.animateCamera(CameraUpdateFactory.newLatLng(marker.getPosition()));
         marker.showInfoWindow();
         Integer markerId = (Integer) marker.getTag(); //We need to get the relevant busStop info knowing which markerTag was selected
-        int id = busStops.get(markerId).getStop_id();
-        String headsign = "initial1";
-        String prevHeadsign = "initial2";
-        int m = 0;
+        final int id = busStops.get(markerId).getStop_id();
+        ArrayList<String> headsigns = new ArrayList<String>();
+        ArrayList<ArrayList<String>> buttonInfo = new ArrayList<ArrayList<String>>();
+        int headsignIndex = 0, timeIndex = 0;
+        busStop stopMarker;
+
+        final TextView textView = new TextView(this);
+        textView.setText("Bus Stop: " + busStops.get(markerId).getStop_name());
+        textView.setGravity(Gravity.CENTER);
+        textView.setTextAppearance(this, android.R.style.TextAppearance_Large);
+        buttonList.addView(textView, layoutParameters);
+
+        final Button departure = new Button(this);
+        departure.setText("Set stop as departure");
+        departure.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for(busStop stop : busStops)
+                if(stop.getStop_id().intValue() == id) {
+                    departureLocation = stop;
+                    System.out.println("Stop " + departureLocation.getStop_name() + " is selected as the departure location");
+                    break;
+                }
+            }
+        });
+        buttonList.addView(departure, layoutParameters);
+        final Button arrival = new Button(this);
+        arrival.setText("Set stop as arrival");
+        arrival.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for(busStop stop : busStops)
+                    if(stop.getStop_id().intValue() == id) {
+                        arrivalLocation = stop;
+                        System.out.println("Stop " + arrivalLocation.getStop_name() + " is selected as the arrival location");
+                        break;
+                    }
+            }
+        });
+        buttonList.addView(arrival, layoutParameters);
+
 
         info = new StringBuilder("");
         for (stopTime stop : stopTimes) { // for each stop in the stopTimes array, append the relevant stop arrival and destination times
             if (stop.getStop_id().intValue() == id) {
                 for(int i = 0; i < trips.size(); i++){
-                    if(trips.get(i).getTrip_id().intValue() == stop.getTrip_id().intValue() && trips.get(i).getService_id().intValue() == service_id){
-                        headsign = trips.get(i).getTrip_headsign();
-                        if(!(headsign.equals(prevHeadsign))) { // The logic here assumes that headsigns are grouped together in GTFS file, which it isn't, so the logic has to be modified here
-                            final TextView myTextView = new TextView(this);
-                            myTextView.setText("Route: " + trips.get(i).getTrip_headsign());
-                            myTextView.setGravity(Gravity.CENTER);
-                            myTextView.setTextAppearance(this, android.R.style.TextAppearance_Large);
-                            buttonList.addView(myTextView, layoutParameters);
+                    if(trips.get(i).getTrip_id().intValue() == stop.getTrip_id().intValue() && trips.get(i).getService_id().intValue() == service_id && trips.get(i).getRoute_id() == selectedPolyline){
+                        System.out.println("Trip: " + trips.get(i).getTrip_id() + " with name " + trips.get(i).getTrip_headsign() + " at stop id " + id + " matching " + stop.getStop_id() + " on Polyline " + trips.get(i).getRoute_id() + " matching " + selectedPolyline);
+                        //if(!(headsign.equals(prevHeadsign))) { // The logic here assumes that headsigns are grouped together in GTFS file, which it isn't, so the logic has to be modified here
+                        if(!headsigns.contains(trips.get(i).getTrip_headsign())) {
+                            headsigns.add(trips.get(i).getTrip_headsign());
+                            headsignIndex++;
+                            buttonInfo.add(new ArrayList<String>());
                         }
-                        prevHeadsign = headsign;
-
-                        final Button myButton = new Button(this); // Buttons will have to be dynamically added into the scrollview instead of regular text to make the route / busStop selectable from the infoBox
-                        myButton.setText("Departure: " + stop.getDeparture_time());
-
-                        Calendar departureTime = Calendar.getInstance();
-                        try {
-                            departureTime.setTime(simpleFormatter.parse(stop.getDeparture_time()));// all done
-                        }
-                        catch (ParseException e)
+                        for(int j = 0; j < headsigns.size(); j++)
                         {
-                            e.printStackTrace();
+                            if (trips.get(i).getTrip_headsign().compareTo(headsigns.get(j))==0) {
+                                buttonInfo.get(j).add(stop.getDeparture_time() + "," + stop.getStop_id() + "," + i);
+                                break;
+                            }
                         }
-
-                        if (departureTime.before(calendarDay.getTime())) {
-                            myButton.setTextAppearance(this, android.R.style.TextAppearance_Small);
-                            myButton.setPaintFlags(myButton.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                            myButton.setClickable(false);
-                        }
-                        else {
-
-                            myButton.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    System.out.println(myButton.getText() + " was pressed");
-                                    // Do something
-                                }
-                            });
-                        }
-
-                        myButton.setId(m);
-
-                        buttonList.addView(myButton, layoutParameters);
-                        m++;
-
                         break;
                     }
                 }
             }
         }
-        //infoBox.setText(info);
+
+        for(int i = 0; i < headsigns.size(); i++)
+        {
+            Collections.sort(buttonInfo.get(i));
+        }
+
+        for(int i = 0; i < headsigns.size(); i++)
+        {
+            final TextView myTextView = new TextView(this);
+            myTextView.setText("Route: " + headsigns.get(i).toString());
+            myTextView.setGravity(Gravity.CENTER);
+            myTextView.setTextAppearance(this, android.R.style.TextAppearance_Large);
+            buttonList.addView(myTextView, layoutParameters);
+
+            for(int j = 0; j < buttonInfo.get(i).size(); j++)
+            {
+                String[] info = buttonInfo.get(i).get(j).split(",");
+                final Button myButton = new Button(this); // Buttons will have to be dynamically added into the scrollview instead of regular text to make the route / busStop selectable from the infoBox
+                myButton.setText(info[0]);
+
+                Calendar departureTime = Calendar.getInstance();
+                try {
+                    departureTime.setTime(simpleFormatter.parse(info[0]));
+                }
+                catch (ParseException e)
+                {
+                    e.printStackTrace();
+                }
+                if (departureTime.getTime().getHours() < calendarDay.getTime().getHours() || (departureTime.getTime().getHours() == calendarDay.getTime().getHours() && departureTime.getTime().getMinutes() < calendarDay.getTime().getMinutes())) { // make past times unselectable
+                    myButton.setTextAppearance(this, android.R.style.TextAppearance_Small);
+                    myButton.setPaintFlags(myButton.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                    myButton.setClickable(false);
+                }
+                else {
+                    System.out.println(info[0] + " " + info[1] + " " + info[2]);
+                    myButton.setId(Integer.parseInt(info[1]));
+                    final int trip = Integer.parseInt(info[2]);
+
+                    myButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            System.out.println(myButton.getText() + " has trip_id " + trips.get(trip).getTrip_id() + " and has id " + myButton.getId());
+                            for(busStop stop : busStops)
+                            {
+                                if(stop.getStop_id().intValue() == myButton.getId())
+                                {
+                                    System.out.println(stop.getStop_id().intValue() + " matches " + myButton.getId());
+                                    departureLocation = stop;
+                                    System.out.println("Stop " + departureLocation.getStop_name() + " is selected as the departure location");
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                }
+
+                buttonList.addView(myButton, layoutParameters);
+            }
+        }
     }
-
-
-
-
 
     private class JsonTask extends AsyncTask<String, String, String> { // all JSON parsing logic goes here
         protected void onPreExecute() {
@@ -611,7 +783,7 @@ public class MapsActivity extends AppCompatActivity
                         vehicle = new JSONObject(vehiclePosition.getString("vehicle"));
                         position = new JSONObject(vehicle.getString("position"));
                         trip = new JSONObject(vehicle.getString("trip"));
-                        realtimeBuses.add(new busRT(vehiclePosition.getString("alert"), vehiclePosition.getString("id"),  vehiclePosition.getString("trip_update"), Double.parseDouble(position.getString("latitude")), Double.parseDouble(position.getString("longitude")), Long.parseLong(vehicle.getString("timestamp")), Integer.parseInt(trip.getString("route_id")), Integer.parseInt(trip.getString("schedule_relationship")), Long.parseLong(trip.getString("start_date")), Integer.parseInt(trip.getString("trip_id"))));
+                        realtimeBuses.add(new busRT(vehiclePosition.getString("alert"), vehiclePosition.getString("id"),  vehiclePosition.getString("trip_update"), Double.parseDouble(position.getString("latitude")), Double.parseDouble(position.getString("longitude")), Long.parseLong(vehicle.getString("timestamp")), Integer.parseInt(trip.getString("route_id")), Integer.parseInt(trip.getString("schedule_relationship")), Long.parseLong(trip.getString("start_date")), trip.getString("trip_id")));
                         realtimeBusIds.add(vehiclePosition.getString("id").toString());
                     }
                     else // update an existing bus location

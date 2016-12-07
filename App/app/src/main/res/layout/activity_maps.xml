@@ -24,15 +24,32 @@ android:layout_height="match_parent">
         android:layout_height="match_parent"
         class="com.google.android.gms.maps.SupportMapFragment" />
 
+    <AutoCompleteTextView
+        android:text="AutoCompleteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/searchBox" />
+
+    <Button
+        android:text="Search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/searchButton"
+        android:onClick="onButtonClick" />
+
     <ScrollView
         android:background="#D0FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="175dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -47,6 +64,12 @@ android:layout_height="match_parent">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Select a route. Bus stops along that route will appear. Select a route and tap on the title to view arrival and departure times here!!!" />
+
+            <LinearLayout
+                android:id="@+id/arrivalAndDeparture"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></LinearLayout>
 
             <LinearLayout
                 android:id="@+id/buttonList"
@@ -74,25 +97,6 @@ android:layout_height="match_parent">
 
         </LinearLayout>
     </ScrollView>
-
-    <AutoCompleteTextView
-        android:text="AutoCompleteTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/searchBox" />
-
-    <Button
-        android:text="Search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/searchButton"
-        android:onClick="onButtonClick" />
 
 
 </RelativeLayout>

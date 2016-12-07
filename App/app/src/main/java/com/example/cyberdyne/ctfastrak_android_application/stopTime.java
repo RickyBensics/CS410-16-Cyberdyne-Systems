@@ -4,7 +4,7 @@ package com.example.cyberdyne.ctfastrak_android_application;
  * Created by Richard on 11/5/2016.
  */
 
-public class stopTime {
+public class stopTime implements java.io.Serializable{
     Integer trip_id;
     String arrival_time;
     String departure_time;

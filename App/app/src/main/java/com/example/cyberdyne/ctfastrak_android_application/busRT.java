@@ -14,9 +14,9 @@ public class busRT {
     Integer route_id;
     Integer schedule_relationship;
     Long start_date;
-    Integer trip_id;
+    String trip_id;
 
-    public busRT(String alert, String id, String trip_update, Double latitude, Double longitude, Long timestamp, Integer route_id, Integer schedule_relationship, Long start_date, Integer trip_id) {
+    public busRT(String alert, String id, String trip_update, Double latitude, Double longitude, Long timestamp, Integer route_id, Integer schedule_relationship, Long start_date, String trip_id) {
 
         this.alert = alert;
         this.id = id;
@@ -102,11 +102,11 @@ public class busRT {
         this.start_date = start_date;
     }
 
-    public Integer getTrip_id() {
+    public String getTrip_id() {
         return trip_id;
     }
 
-    public void setTrip_id(Integer trip_id) {
+    public void setTrip_id(String trip_id) {
         this.trip_id = trip_id;
     }
 

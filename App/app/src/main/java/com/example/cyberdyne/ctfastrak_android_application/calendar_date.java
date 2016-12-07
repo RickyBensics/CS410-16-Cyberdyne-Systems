@@ -4,7 +4,7 @@ package com.example.cyberdyne.ctfastrak_android_application;
  * Created by Richard on 11/18/2016.
  */
 
-public class calendar_date {
+public class calendar_date implements java.io.Serializable{
     Integer service_id;
     Integer date;
     Integer exception_type;

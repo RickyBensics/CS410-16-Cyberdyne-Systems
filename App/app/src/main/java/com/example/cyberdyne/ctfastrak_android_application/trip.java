@@ -4,7 +4,7 @@ package com.example.cyberdyne.ctfastrak_android_application;
  * Created by Richard on 11/5/2016.
  */
 
-public class trip {
+public class trip implements java.io.Serializable{
     String block_id;
     Integer route_id;
     Integer direction_id;

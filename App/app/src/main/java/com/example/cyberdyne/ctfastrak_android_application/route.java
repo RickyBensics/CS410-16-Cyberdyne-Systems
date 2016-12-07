@@ -4,7 +4,7 @@ package com.example.cyberdyne.ctfastrak_android_application;
  * Created by Richard on 11/6/2016.
  */
 
-public class route {
+public class route implements java.io.Serializable{
     Integer route_id;
     String agency_id;
     String route_short_name;

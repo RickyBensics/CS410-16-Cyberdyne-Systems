@@ -13,6 +13,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
@@ -36,6 +37,21 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state />
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="App" />
   </component>
@@ -44,44 +60,68 @@
       <file leaf-file-name="MapsActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/MapsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="469" column="74" selection-start-line="469" selection-start-column="74" selection-end-line="469" selection-end-column="74" />
+            <state relative-caret-position="1550">
+              <caret line="180" column="56" selection-start-line="180" selection-start-column="56" selection-end-line="180" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3637#3645#0" expanded="true" />
-                <element signature="e#3697#3706#0" expanded="true" />
-                <element signature="e#3757#3766#0" expanded="true" />
-                <element signature="e#3817#3826#0" expanded="true" />
-                <element signature="e#3882#3890#0" expanded="true" />
-                <element signature="e#3947#3955#0" expanded="true" />
-                <element signature="e#4021#4038#0" expanded="true" />
-                <element signature="e#4091#4101#0" expanded="true" />
-                <element signature="e#4150#4158#0" expanded="true" />
-                <element signature="e#4210#4218#0" expanded="true" />
-                <element signature="e#4273#4281#0" expanded="true" />
-                <element signature="e#4332#4341#0" expanded="true" />
-                <element signature="e#4394#4404#0" expanded="true" />
-                <element signature="e#4449#4455#0" expanded="true" />
-                <element signature="e#4502#4509#0" expanded="true" />
-                <element signature="e#4556#4563#0" expanded="true" />
-                <element signature="e#4616#4626#0" expanded="true" />
-                <element signature="e#4689#4704#0" expanded="true" />
-                <element signature="e#4758#4765#0" expanded="true" />
-                <element signature="e#14089#14317#0" expanded="true" />
-                <element signature="e#14316#14317#0" expanded="true" />
-                <element signature="e#14397#15100#0" expanded="true" />
-                <element signature="e#15099#15100#0" expanded="true" />
-                <element signature="e#18379#18833#0" expanded="true" />
-                <element signature="e#18832#18833#0" expanded="true" />
-                <element signature="e#19371#19611#0" expanded="true" />
-                <element signature="e#19610#19611#0" expanded="true" />
-                <element signature="e#21063#21344#0" expanded="true" />
-                <element signature="e#21343#21344#0" expanded="true" />
-                <element signature="e#25336#25680#0" expanded="true" />
-                <element signature="e#25679#25680#0" expanded="true" />
-                <element signature="e#32312#32320#0" expanded="true" />
-                <element signature="e#35886#36798#0" expanded="true" />
-                <element signature="e#36797#36798#0" expanded="true" />
+                <element signature="e#4016#4024#0" expanded="true" />
+                <element signature="e#4076#4085#0" expanded="true" />
+                <element signature="e#4136#4145#0" expanded="true" />
+                <element signature="e#4196#4205#0" expanded="true" />
+                <element signature="e#4261#4269#0" expanded="true" />
+                <element signature="e#4326#4334#0" expanded="true" />
+                <element signature="e#4400#4417#0" expanded="true" />
+                <element signature="e#4470#4480#0" expanded="true" />
+                <element signature="e#4529#4537#0" expanded="true" />
+                <element signature="e#4589#4597#0" expanded="true" />
+                <element signature="e#4652#4660#0" expanded="true" />
+                <element signature="e#4711#4720#0" expanded="true" />
+                <element signature="e#4773#4783#0" expanded="true" />
+                <element signature="e#4828#4834#0" expanded="true" />
+                <element signature="e#4881#4888#0" expanded="true" />
+                <element signature="e#4935#4942#0" expanded="true" />
+                <element signature="e#4995#5005#0" expanded="true" />
+                <element signature="e#5068#5083#0" expanded="true" />
+                <element signature="e#5137#5144#0" expanded="true" />
+                <element signature="e#5429#5430#0" expanded="true" />
+                <element signature="e#5474#5475#0" expanded="true" />
+                <element signature="e#8134#8324#0" expanded="true" />
+                <element signature="e#8323#8324#0" expanded="true" />
+                <element signature="e#9544#9731#0" expanded="true" />
+                <element signature="e#9730#9731#0" expanded="true" />
+                <element signature="e#10734#10922#0" expanded="true" />
+                <element signature="e#10921#10922#0" expanded="true" />
+                <element signature="e#11643#11835#0" expanded="true" />
+                <element signature="e#11834#11835#0" expanded="true" />
+                <element signature="e#13189#13376#0" expanded="true" />
+                <element signature="e#13375#13376#0" expanded="true" />
+                <element signature="e#14190#14378#0" expanded="true" />
+                <element signature="e#14377#14378#0" expanded="true" />
+                <element signature="e#15015#15211#0" expanded="true" />
+                <element signature="e#15210#15211#0" expanded="true" />
+                <element signature="e#17593#17821#0" expanded="true" />
+                <element signature="e#17820#17821#0" expanded="true" />
+                <element signature="e#17908#18611#0" expanded="true" />
+                <element signature="e#18610#18611#0" expanded="true" />
+                <element signature="e#21896#22350#0" expanded="true" />
+                <element signature="e#22349#22350#0" expanded="true" />
+                <element signature="e#22888#23128#0" expanded="true" />
+                <element signature="e#23127#23128#0" expanded="true" />
+                <element signature="e#24663#24944#0" expanded="true" />
+                <element signature="e#24943#24944#0" expanded="true" />
+                <element signature="e#26563#26571#0" expanded="true" />
+                <element signature="e#26638#26657#0" expanded="true" />
+                <element signature="e#27192#27631#0" expanded="true" />
+                <element signature="e#27630#27631#0" expanded="true" />
+                <element signature="e#27823#28276#0" expanded="true" />
+                <element signature="e#28275#28276#0" expanded="true" />
+                <element signature="e#32104#33061#0" expanded="true" />
+                <element signature="e#33060#33061#0" expanded="true" />
+                <marker date="1481085702757" expanded="false" signature="33322:33337" ph=" { " />
+                <marker date="1481085702757" expanded="false" signature="33358:33368" ph=" }" />
+                <marker date="1481085702757" expanded="false" signature="39477:39485" ph="&lt;~&gt;" />
+                <marker date="1481085702757" expanded="false" signature="43051:43121" ph="() → {" />
+                <marker date="1481085702757" expanded="false" signature="43948:43963" ph="}" />
               </folding>
             </state>
           </provider>
@@ -90,13 +130,114 @@
       <file leaf-file-name="activity_maps.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+            <state relative-caret-position="338">
+              <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
               <folding />
             </state>
           </provider>
           <provider editor-type-id="android-designer2">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="busRT.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/busRT.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="767">
+              <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="route.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/route.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calendar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/calendar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+              <folding>
+                <element signature="e#960#961#0" expanded="false" />
+                <element signature="e#993#994#0" expanded="false" />
+                <element signature="e#1046#1047#0" expanded="false" />
+                <element signature="e#1090#1091#0" expanded="false" />
+                <element signature="e#1124#1125#0" expanded="false" />
+                <element signature="e#1153#1154#0" expanded="false" />
+                <element signature="e#1198#1199#0" expanded="false" />
+                <element signature="e#1234#1235#0" expanded="false" />
+                <element signature="e#1269#1270#0" expanded="false" />
+                <element signature="e#1299#1300#0" expanded="false" />
+                <element signature="e#1346#1347#0" expanded="false" />
+                <element signature="e#1384#1385#0" expanded="false" />
+                <element signature="e#1421#1422#0" expanded="false" />
+                <element signature="e#1453#1454#0" expanded="false" />
+                <element signature="e#1504#1505#0" expanded="false" />
+                <element signature="e#1546#1547#0" expanded="false" />
+                <element signature="e#1582#1583#0" expanded="false" />
+                <element signature="e#1613#1614#0" expanded="false" />
+                <element signature="e#1662#1663#0" expanded="false" />
+                <element signature="e#1702#1703#0" expanded="false" />
+                <element signature="e#1736#1737#0" expanded="false" />
+                <element signature="e#1765#1766#0" expanded="false" />
+                <element signature="e#1810#1811#0" expanded="false" />
+                <element signature="e#1846#1847#0" expanded="false" />
+                <element signature="e#1882#1883#0" expanded="false" />
+                <element signature="e#1913#1914#0" expanded="false" />
+                <element signature="e#1962#1963#0" expanded="false" />
+                <element signature="e#2002#2003#0" expanded="false" />
+                <element signature="e#2036#2037#0" expanded="false" />
+                <element signature="e#2065#2066#0" expanded="false" />
+                <element signature="e#2110#2111#0" expanded="false" />
+                <element signature="e#2146#2147#0" expanded="false" />
+                <element signature="e#2184#2185#0" expanded="false" />
+                <element signature="e#2217#2218#0" expanded="false" />
+                <element signature="e#2270#2271#0" expanded="false" />
+                <element signature="e#2314#2315#0" expanded="false" />
+                <element signature="e#2350#2351#0" expanded="false" />
+                <element signature="e#2381#2382#0" expanded="false" />
+                <element signature="e#2430#2431#0" expanded="false" />
+                <element signature="e#2470#2471#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="busStop.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/busStop.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stopTime.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/stopTime.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shape.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/shape.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -2301,6 +2442,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/route.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/trip.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/stopTime.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/shape.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/calendar_date.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/calendar.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/busStop.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/busRT.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/MapsActivity.java" />
       </list>
@@ -2337,6 +2486,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2344,9 +2496,15 @@
               <option name="myItemId" value="App" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2354,19 +2512,42 @@
               <option name="myItemId" value="App" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ctfastrak_android_application" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/CTFastrak_Android_Application" />
-    <property name="device.picker.selection" value="35bd434e" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/App" />
+    <property name="device.picker.selection" value="04440522437f48e8" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
@@ -2693,37 +2874,37 @@
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.50158983" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2359015" sideWeight="0.49841017" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23351866" sideWeight="0.53100157" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23351866" sideWeight="0.4689984" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39952344" sideWeight="0.48887122" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.49841017" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.49046105" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.49682036" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.49046105" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2359015" sideWeight="0.5023847" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298887" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2739,7 +2920,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -2749,40 +2932,655 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3637#3645#0" expanded="true" />
-            <element signature="e#3697#3706#0" expanded="true" />
-            <element signature="e#3757#3766#0" expanded="true" />
-            <element signature="e#3817#3826#0" expanded="true" />
-            <element signature="e#3882#3890#0" expanded="true" />
-            <element signature="e#3947#3955#0" expanded="true" />
-            <element signature="e#4021#4038#0" expanded="true" />
-            <element signature="e#4091#4101#0" expanded="true" />
-            <element signature="e#4150#4158#0" expanded="true" />
-            <element signature="e#4210#4218#0" expanded="true" />
-            <element signature="e#4273#4281#0" expanded="true" />
-            <element signature="e#4332#4341#0" expanded="true" />
-            <element signature="e#4394#4404#0" expanded="true" />
-            <element signature="e#4449#4455#0" expanded="true" />
-            <element signature="e#4502#4509#0" expanded="true" />
-            <element signature="e#4556#4563#0" expanded="true" />
-            <element signature="e#4616#4626#0" expanded="true" />
-            <element signature="e#4689#4704#0" expanded="true" />
-            <element signature="e#4758#4765#0" expanded="true" />
-            <element signature="e#14089#14317#0" expanded="true" />
-            <element signature="e#14316#14317#0" expanded="true" />
-            <element signature="e#14397#15100#0" expanded="true" />
-            <element signature="e#15099#15100#0" expanded="true" />
-            <element signature="e#18379#18833#0" expanded="true" />
-            <element signature="e#18832#18833#0" expanded="true" />
-            <element signature="e#19371#19611#0" expanded="true" />
-            <element signature="e#19610#19611#0" expanded="true" />
-            <element signature="e#21063#21344#0" expanded="true" />
-            <element signature="e#21343#21344#0" expanded="true" />
-            <element signature="e#25336#25680#0" expanded="true" />
-            <element signature="e#25679#25680#0" expanded="true" />
-            <element signature="e#32312#32320#0" expanded="true" />
-            <element signature="e#35886#36798#0" expanded="true" />
-            <element signature="e#36797#36798#0" expanded="true" />
+            <element signature="e#4016#4024#0" expanded="true" />
+            <element signature="e#4076#4085#0" expanded="true" />
+            <element signature="e#4136#4145#0" expanded="true" />
+            <element signature="e#4196#4205#0" expanded="true" />
+            <element signature="e#4261#4269#0" expanded="true" />
+            <element signature="e#4326#4334#0" expanded="true" />
+            <element signature="e#4400#4417#0" expanded="true" />
+            <element signature="e#4470#4480#0" expanded="true" />
+            <element signature="e#4529#4537#0" expanded="true" />
+            <element signature="e#4589#4597#0" expanded="true" />
+            <element signature="e#4652#4660#0" expanded="true" />
+            <element signature="e#4711#4720#0" expanded="true" />
+            <element signature="e#4773#4783#0" expanded="true" />
+            <element signature="e#4828#4834#0" expanded="true" />
+            <element signature="e#4881#4888#0" expanded="true" />
+            <element signature="e#4935#4942#0" expanded="true" />
+            <element signature="e#4995#5005#0" expanded="true" />
+            <element signature="e#5068#5083#0" expanded="true" />
+            <element signature="e#5137#5144#0" expanded="true" />
+            <element signature="e#5429#5430#0" expanded="true" />
+            <element signature="e#5474#5475#0" expanded="true" />
+            <element signature="e#8134#8324#0" expanded="true" />
+            <element signature="e#8323#8324#0" expanded="true" />
+            <element signature="e#9544#9731#0" expanded="true" />
+            <element signature="e#9730#9731#0" expanded="true" />
+            <element signature="e#10734#10922#0" expanded="true" />
+            <element signature="e#10921#10922#0" expanded="true" />
+            <element signature="e#11643#11835#0" expanded="true" />
+            <element signature="e#11834#11835#0" expanded="true" />
+            <element signature="e#13189#13376#0" expanded="true" />
+            <element signature="e#13375#13376#0" expanded="true" />
+            <element signature="e#14190#14378#0" expanded="true" />
+            <element signature="e#14377#14378#0" expanded="true" />
+            <element signature="e#15015#15211#0" expanded="true" />
+            <element signature="e#15210#15211#0" expanded="true" />
+            <element signature="e#17593#17821#0" expanded="true" />
+            <element signature="e#17820#17821#0" expanded="true" />
+            <element signature="e#17908#18611#0" expanded="true" />
+            <element signature="e#18610#18611#0" expanded="true" />
+            <element signature="e#21896#22350#0" expanded="true" />
+            <element signature="e#22349#22350#0" expanded="true" />
+            <element signature="e#22888#23128#0" expanded="true" />
+            <element signature="e#23127#23128#0" expanded="true" />
+            <element signature="e#24663#24944#0" expanded="true" />
+            <element signature="e#24943#24944#0" expanded="true" />
+            <element signature="e#26563#26571#0" expanded="true" />
+            <element signature="e#26638#26657#0" expanded="true" />
+            <element signature="e#27192#27631#0" expanded="true" />
+            <element signature="e#27630#27631#0" expanded="true" />
+            <element signature="e#27823#28276#0" expanded="true" />
+            <element signature="e#28275#28276#0" expanded="true" />
+            <element signature="e#32104#33061#0" expanded="true" />
+            <element signature="e#33060#33061#0" expanded="true" />
+            <marker date="1481085702757" expanded="false" signature="33322:33337" ph=" { " />
+            <marker date="1481085702757" expanded="false" signature="33358:33368" ph=" }" />
+            <marker date="1481085702757" expanded="false" signature="39477:39485" ph="&lt;~&gt;" />
+            <marker date="1481085702757" expanded="false" signature="43051:43121" ph="() → {" />
+            <marker date="1481085702757" expanded="false" signature="43948:43963" ph="}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/route.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/calendar_date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+          <folding>
+            <element signature="e#476#477#0" expanded="false" />
+            <element signature="e#509#510#0" expanded="false" />
+            <element signature="e#562#563#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="false" />
+            <element signature="e#638#639#0" expanded="false" />
+            <element signature="e#665#666#0" expanded="false" />
+            <element signature="e#706#707#0" expanded="false" />
+            <element signature="e#738#739#0" expanded="false" />
+            <element signature="e#780#781#0" expanded="false" />
+            <element signature="e#817#818#0" expanded="false" />
+            <element signature="e#878#879#0" expanded="false" />
+            <element signature="e#930#931#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          <folding>
+            <element signature="e#960#961#0" expanded="false" />
+            <element signature="e#993#994#0" expanded="false" />
+            <element signature="e#1046#1047#0" expanded="false" />
+            <element signature="e#1090#1091#0" expanded="false" />
+            <element signature="e#1124#1125#0" expanded="false" />
+            <element signature="e#1153#1154#0" expanded="false" />
+            <element signature="e#1198#1199#0" expanded="false" />
+            <element signature="e#1234#1235#0" expanded="false" />
+            <element signature="e#1269#1270#0" expanded="false" />
+            <element signature="e#1299#1300#0" expanded="false" />
+            <element signature="e#1346#1347#0" expanded="false" />
+            <element signature="e#1384#1385#0" expanded="false" />
+            <element signature="e#1421#1422#0" expanded="false" />
+            <element signature="e#1453#1454#0" expanded="false" />
+            <element signature="e#1504#1505#0" expanded="false" />
+            <element signature="e#1546#1547#0" expanded="false" />
+            <element signature="e#1582#1583#0" expanded="false" />
+            <element signature="e#1613#1614#0" expanded="false" />
+            <element signature="e#1662#1663#0" expanded="false" />
+            <element signature="e#1702#1703#0" expanded="false" />
+            <element signature="e#1736#1737#0" expanded="false" />
+            <element signature="e#1765#1766#0" expanded="false" />
+            <element signature="e#1810#1811#0" expanded="false" />
+            <element signature="e#1846#1847#0" expanded="false" />
+            <element signature="e#1882#1883#0" expanded="false" />
+            <element signature="e#1913#1914#0" expanded="false" />
+            <element signature="e#1962#1963#0" expanded="false" />
+            <element signature="e#2002#2003#0" expanded="false" />
+            <element signature="e#2036#2037#0" expanded="false" />
+            <element signature="e#2065#2066#0" expanded="false" />
+            <element signature="e#2110#2111#0" expanded="false" />
+            <element signature="e#2146#2147#0" expanded="false" />
+            <element signature="e#2184#2185#0" expanded="false" />
+            <element signature="e#2217#2218#0" expanded="false" />
+            <element signature="e#2270#2271#0" expanded="false" />
+            <element signature="e#2314#2315#0" expanded="false" />
+            <element signature="e#2350#2351#0" expanded="false" />
+            <element signature="e#2381#2382#0" expanded="false" />
+            <element signature="e#2430#2431#0" expanded="false" />
+            <element signature="e#2470#2471#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/busStop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/trip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="49" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/stopTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/shape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="70" column="51" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/MapsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4016#4024#0" expanded="true" />
+            <element signature="e#4076#4085#0" expanded="true" />
+            <element signature="e#4136#4145#0" expanded="true" />
+            <element signature="e#4196#4205#0" expanded="true" />
+            <element signature="e#4261#4269#0" expanded="true" />
+            <element signature="e#4326#4334#0" expanded="true" />
+            <element signature="e#4400#4417#0" expanded="true" />
+            <element signature="e#4470#4480#0" expanded="true" />
+            <element signature="e#4529#4537#0" expanded="true" />
+            <element signature="e#4589#4597#0" expanded="true" />
+            <element signature="e#4652#4660#0" expanded="true" />
+            <element signature="e#4711#4720#0" expanded="true" />
+            <element signature="e#4773#4783#0" expanded="true" />
+            <element signature="e#4828#4834#0" expanded="true" />
+            <element signature="e#4881#4888#0" expanded="true" />
+            <element signature="e#4935#4942#0" expanded="true" />
+            <element signature="e#4995#5005#0" expanded="true" />
+            <element signature="e#5068#5083#0" expanded="true" />
+            <element signature="e#5137#5144#0" expanded="true" />
+            <element signature="e#5429#5430#0" expanded="true" />
+            <element signature="e#5474#5475#0" expanded="true" />
+            <element signature="e#8134#8324#0" expanded="true" />
+            <element signature="e#8323#8324#0" expanded="true" />
+            <element signature="e#9544#9731#0" expanded="true" />
+            <element signature="e#9730#9731#0" expanded="true" />
+            <element signature="e#10734#10922#0" expanded="true" />
+            <element signature="e#10921#10922#0" expanded="true" />
+            <element signature="e#11643#11835#0" expanded="true" />
+            <element signature="e#11834#11835#0" expanded="true" />
+            <element signature="e#13189#13376#0" expanded="true" />
+            <element signature="e#13375#13376#0" expanded="true" />
+            <element signature="e#14190#14378#0" expanded="true" />
+            <element signature="e#14377#14378#0" expanded="true" />
+            <element signature="e#15015#15211#0" expanded="true" />
+            <element signature="e#15210#15211#0" expanded="true" />
+            <element signature="e#17593#17821#0" expanded="true" />
+            <element signature="e#17820#17821#0" expanded="true" />
+            <element signature="e#17908#18611#0" expanded="true" />
+            <element signature="e#18610#18611#0" expanded="true" />
+            <element signature="e#21896#22350#0" expanded="true" />
+            <element signature="e#22349#22350#0" expanded="true" />
+            <element signature="e#22888#23128#0" expanded="true" />
+            <element signature="e#23127#23128#0" expanded="true" />
+            <element signature="e#24663#24944#0" expanded="true" />
+            <element signature="e#24943#24944#0" expanded="true" />
+            <element signature="e#26563#26571#0" expanded="true" />
+            <element signature="e#26638#26657#0" expanded="true" />
+            <element signature="e#27192#27631#0" expanded="true" />
+            <element signature="e#27630#27631#0" expanded="true" />
+            <element signature="e#27823#28276#0" expanded="true" />
+            <element signature="e#28275#28276#0" expanded="true" />
+            <element signature="e#32104#33061#0" expanded="true" />
+            <element signature="e#33060#33061#0" expanded="true" />
+            <marker date="1481085702757" expanded="false" signature="33322:33337" ph=" { " />
+            <marker date="1481085702757" expanded="false" signature="33358:33368" ph=" }" />
+            <marker date="1481085702757" expanded="false" signature="39477:39485" ph="&lt;~&gt;" />
+            <marker date="1481085702757" expanded="false" signature="43051:43121" ph="() → {" />
+            <marker date="1481085702757" expanded="false" signature="43948:43963" ph="}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/route.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/calendar_date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+          <folding>
+            <element signature="e#476#477#0" expanded="false" />
+            <element signature="e#509#510#0" expanded="false" />
+            <element signature="e#562#563#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="false" />
+            <element signature="e#638#639#0" expanded="false" />
+            <element signature="e#665#666#0" expanded="false" />
+            <element signature="e#706#707#0" expanded="false" />
+            <element signature="e#738#739#0" expanded="false" />
+            <element signature="e#780#781#0" expanded="false" />
+            <element signature="e#817#818#0" expanded="false" />
+            <element signature="e#878#879#0" expanded="false" />
+            <element signature="e#930#931#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          <folding>
+            <element signature="e#960#961#0" expanded="false" />
+            <element signature="e#993#994#0" expanded="false" />
+            <element signature="e#1046#1047#0" expanded="false" />
+            <element signature="e#1090#1091#0" expanded="false" />
+            <element signature="e#1124#1125#0" expanded="false" />
+            <element signature="e#1153#1154#0" expanded="false" />
+            <element signature="e#1198#1199#0" expanded="false" />
+            <element signature="e#1234#1235#0" expanded="false" />
+            <element signature="e#1269#1270#0" expanded="false" />
+            <element signature="e#1299#1300#0" expanded="false" />
+            <element signature="e#1346#1347#0" expanded="false" />
+            <element signature="e#1384#1385#0" expanded="false" />
+            <element signature="e#1421#1422#0" expanded="false" />
+            <element signature="e#1453#1454#0" expanded="false" />
+            <element signature="e#1504#1505#0" expanded="false" />
+            <element signature="e#1546#1547#0" expanded="false" />
+            <element signature="e#1582#1583#0" expanded="false" />
+            <element signature="e#1613#1614#0" expanded="false" />
+            <element signature="e#1662#1663#0" expanded="false" />
+            <element signature="e#1702#1703#0" expanded="false" />
+            <element signature="e#1736#1737#0" expanded="false" />
+            <element signature="e#1765#1766#0" expanded="false" />
+            <element signature="e#1810#1811#0" expanded="false" />
+            <element signature="e#1846#1847#0" expanded="false" />
+            <element signature="e#1882#1883#0" expanded="false" />
+            <element signature="e#1913#1914#0" expanded="false" />
+            <element signature="e#1962#1963#0" expanded="false" />
+            <element signature="e#2002#2003#0" expanded="false" />
+            <element signature="e#2036#2037#0" expanded="false" />
+            <element signature="e#2065#2066#0" expanded="false" />
+            <element signature="e#2110#2111#0" expanded="false" />
+            <element signature="e#2146#2147#0" expanded="false" />
+            <element signature="e#2184#2185#0" expanded="false" />
+            <element signature="e#2217#2218#0" expanded="false" />
+            <element signature="e#2270#2271#0" expanded="false" />
+            <element signature="e#2314#2315#0" expanded="false" />
+            <element signature="e#2350#2351#0" expanded="false" />
+            <element signature="e#2381#2382#0" expanded="false" />
+            <element signature="e#2430#2431#0" expanded="false" />
+            <element signature="e#2470#2471#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/busStop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/trip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="49" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/stopTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/shape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="70" column="51" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/MapsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4016#4024#0" expanded="true" />
+            <element signature="e#4076#4085#0" expanded="true" />
+            <element signature="e#4136#4145#0" expanded="true" />
+            <element signature="e#4196#4205#0" expanded="true" />
+            <element signature="e#4261#4269#0" expanded="true" />
+            <element signature="e#4326#4334#0" expanded="true" />
+            <element signature="e#4400#4417#0" expanded="true" />
+            <element signature="e#4470#4480#0" expanded="true" />
+            <element signature="e#4529#4537#0" expanded="true" />
+            <element signature="e#4589#4597#0" expanded="true" />
+            <element signature="e#4652#4660#0" expanded="true" />
+            <element signature="e#4711#4720#0" expanded="true" />
+            <element signature="e#4773#4783#0" expanded="true" />
+            <element signature="e#4828#4834#0" expanded="true" />
+            <element signature="e#4881#4888#0" expanded="true" />
+            <element signature="e#4935#4942#0" expanded="true" />
+            <element signature="e#4995#5005#0" expanded="true" />
+            <element signature="e#5068#5083#0" expanded="true" />
+            <element signature="e#5137#5144#0" expanded="true" />
+            <element signature="e#5429#5430#0" expanded="true" />
+            <element signature="e#5474#5475#0" expanded="true" />
+            <element signature="e#8134#8324#0" expanded="true" />
+            <element signature="e#8323#8324#0" expanded="true" />
+            <element signature="e#9544#9731#0" expanded="true" />
+            <element signature="e#9730#9731#0" expanded="true" />
+            <element signature="e#10734#10922#0" expanded="true" />
+            <element signature="e#10921#10922#0" expanded="true" />
+            <element signature="e#11643#11835#0" expanded="true" />
+            <element signature="e#11834#11835#0" expanded="true" />
+            <element signature="e#13189#13376#0" expanded="true" />
+            <element signature="e#13375#13376#0" expanded="true" />
+            <element signature="e#14190#14378#0" expanded="true" />
+            <element signature="e#14377#14378#0" expanded="true" />
+            <element signature="e#15015#15211#0" expanded="true" />
+            <element signature="e#15210#15211#0" expanded="true" />
+            <element signature="e#17593#17821#0" expanded="true" />
+            <element signature="e#17820#17821#0" expanded="true" />
+            <element signature="e#17908#18611#0" expanded="true" />
+            <element signature="e#18610#18611#0" expanded="true" />
+            <element signature="e#21896#22350#0" expanded="true" />
+            <element signature="e#22349#22350#0" expanded="true" />
+            <element signature="e#22888#23128#0" expanded="true" />
+            <element signature="e#23127#23128#0" expanded="true" />
+            <element signature="e#24663#24944#0" expanded="true" />
+            <element signature="e#24943#24944#0" expanded="true" />
+            <element signature="e#26563#26571#0" expanded="true" />
+            <element signature="e#26638#26657#0" expanded="true" />
+            <element signature="e#27192#27631#0" expanded="true" />
+            <element signature="e#27630#27631#0" expanded="true" />
+            <element signature="e#27823#28276#0" expanded="true" />
+            <element signature="e#28275#28276#0" expanded="true" />
+            <element signature="e#32104#33061#0" expanded="true" />
+            <element signature="e#33060#33061#0" expanded="true" />
+            <marker date="1481085702757" expanded="false" signature="33322:33337" ph=" { " />
+            <marker date="1481085702757" expanded="false" signature="33358:33368" ph=" }" />
+            <marker date="1481085702757" expanded="false" signature="39477:39485" ph="&lt;~&gt;" />
+            <marker date="1481085702757" expanded="false" signature="43051:43121" ph="() → {" />
+            <marker date="1481085702757" expanded="false" signature="43948:43963" ph="}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/route.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/calendar_date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+          <folding>
+            <element signature="e#476#477#0" expanded="false" />
+            <element signature="e#509#510#0" expanded="false" />
+            <element signature="e#562#563#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="false" />
+            <element signature="e#638#639#0" expanded="false" />
+            <element signature="e#665#666#0" expanded="false" />
+            <element signature="e#706#707#0" expanded="false" />
+            <element signature="e#738#739#0" expanded="false" />
+            <element signature="e#780#781#0" expanded="false" />
+            <element signature="e#817#818#0" expanded="false" />
+            <element signature="e#878#879#0" expanded="false" />
+            <element signature="e#930#931#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          <folding>
+            <element signature="e#960#961#0" expanded="false" />
+            <element signature="e#993#994#0" expanded="false" />
+            <element signature="e#1046#1047#0" expanded="false" />
+            <element signature="e#1090#1091#0" expanded="false" />
+            <element signature="e#1124#1125#0" expanded="false" />
+            <element signature="e#1153#1154#0" expanded="false" />
+            <element signature="e#1198#1199#0" expanded="false" />
+            <element signature="e#1234#1235#0" expanded="false" />
+            <element signature="e#1269#1270#0" expanded="false" />
+            <element signature="e#1299#1300#0" expanded="false" />
+            <element signature="e#1346#1347#0" expanded="false" />
+            <element signature="e#1384#1385#0" expanded="false" />
+            <element signature="e#1421#1422#0" expanded="false" />
+            <element signature="e#1453#1454#0" expanded="false" />
+            <element signature="e#1504#1505#0" expanded="false" />
+            <element signature="e#1546#1547#0" expanded="false" />
+            <element signature="e#1582#1583#0" expanded="false" />
+            <element signature="e#1613#1614#0" expanded="false" />
+            <element signature="e#1662#1663#0" expanded="false" />
+            <element signature="e#1702#1703#0" expanded="false" />
+            <element signature="e#1736#1737#0" expanded="false" />
+            <element signature="e#1765#1766#0" expanded="false" />
+            <element signature="e#1810#1811#0" expanded="false" />
+            <element signature="e#1846#1847#0" expanded="false" />
+            <element signature="e#1882#1883#0" expanded="false" />
+            <element signature="e#1913#1914#0" expanded="false" />
+            <element signature="e#1962#1963#0" expanded="false" />
+            <element signature="e#2002#2003#0" expanded="false" />
+            <element signature="e#2036#2037#0" expanded="false" />
+            <element signature="e#2065#2066#0" expanded="false" />
+            <element signature="e#2110#2111#0" expanded="false" />
+            <element signature="e#2146#2147#0" expanded="false" />
+            <element signature="e#2184#2185#0" expanded="false" />
+            <element signature="e#2217#2218#0" expanded="false" />
+            <element signature="e#2270#2271#0" expanded="false" />
+            <element signature="e#2314#2315#0" expanded="false" />
+            <element signature="e#2350#2351#0" expanded="false" />
+            <element signature="e#2381#2382#0" expanded="false" />
+            <element signature="e#2430#2431#0" expanded="false" />
+            <element signature="e#2470#2471#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/busStop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/trip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="49" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/stopTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/shape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/MapsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4016#4024#0" expanded="true" />
+            <element signature="e#4076#4085#0" expanded="true" />
+            <element signature="e#4136#4145#0" expanded="true" />
+            <element signature="e#4196#4205#0" expanded="true" />
+            <element signature="e#4261#4269#0" expanded="true" />
+            <element signature="e#4326#4334#0" expanded="true" />
+            <element signature="e#4400#4417#0" expanded="true" />
+            <element signature="e#4470#4480#0" expanded="true" />
+            <element signature="e#4529#4537#0" expanded="true" />
+            <element signature="e#4589#4597#0" expanded="true" />
+            <element signature="e#4652#4660#0" expanded="true" />
+            <element signature="e#4711#4720#0" expanded="true" />
+            <element signature="e#4773#4783#0" expanded="true" />
+            <element signature="e#4828#4834#0" expanded="true" />
+            <element signature="e#4881#4888#0" expanded="true" />
+            <element signature="e#4935#4942#0" expanded="true" />
+            <element signature="e#4995#5005#0" expanded="true" />
+            <element signature="e#5068#5083#0" expanded="true" />
+            <element signature="e#5137#5144#0" expanded="true" />
+            <element signature="e#5429#5430#0" expanded="true" />
+            <element signature="e#5474#5475#0" expanded="true" />
+            <element signature="e#8134#8324#0" expanded="true" />
+            <element signature="e#8323#8324#0" expanded="true" />
+            <element signature="e#9544#9731#0" expanded="true" />
+            <element signature="e#9730#9731#0" expanded="true" />
+            <element signature="e#10734#10922#0" expanded="true" />
+            <element signature="e#10921#10922#0" expanded="true" />
+            <element signature="e#11643#11835#0" expanded="true" />
+            <element signature="e#11834#11835#0" expanded="true" />
+            <element signature="e#13189#13376#0" expanded="true" />
+            <element signature="e#13375#13376#0" expanded="true" />
+            <element signature="e#14190#14378#0" expanded="true" />
+            <element signature="e#14377#14378#0" expanded="true" />
+            <element signature="e#15015#15211#0" expanded="true" />
+            <element signature="e#15210#15211#0" expanded="true" />
+            <element signature="e#17593#17821#0" expanded="true" />
+            <element signature="e#17820#17821#0" expanded="true" />
+            <element signature="e#17908#18611#0" expanded="true" />
+            <element signature="e#18610#18611#0" expanded="true" />
+            <element signature="e#21896#22350#0" expanded="true" />
+            <element signature="e#22349#22350#0" expanded="true" />
+            <element signature="e#22888#23128#0" expanded="true" />
+            <element signature="e#23127#23128#0" expanded="true" />
+            <element signature="e#24663#24944#0" expanded="true" />
+            <element signature="e#24943#24944#0" expanded="true" />
+            <element signature="e#26563#26571#0" expanded="true" />
+            <element signature="e#26638#26657#0" expanded="true" />
+            <element signature="e#27192#27631#0" expanded="true" />
+            <element signature="e#27630#27631#0" expanded="true" />
+            <element signature="e#27823#28276#0" expanded="true" />
+            <element signature="e#28275#28276#0" expanded="true" />
+            <element signature="e#32104#33061#0" expanded="true" />
+            <element signature="e#33060#33061#0" expanded="true" />
+            <marker date="1481085702757" expanded="false" signature="33322:33337" ph=" { " />
+            <marker date="1481085702757" expanded="false" signature="33358:33368" ph=" }" />
+            <marker date="1481085702757" expanded="false" signature="39477:39485" ph="&lt;~&gt;" />
+            <marker date="1481085702757" expanded="false" signature="43051:43121" ph="() → {" />
+            <marker date="1481085702757" expanded="false" signature="43948:43963" ph="}" />
           </folding>
         </state>
       </provider>
@@ -2812,40 +3610,64 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3637#3645#0" expanded="true" />
-            <element signature="e#3697#3706#0" expanded="true" />
-            <element signature="e#3757#3766#0" expanded="true" />
-            <element signature="e#3817#3826#0" expanded="true" />
-            <element signature="e#3882#3890#0" expanded="true" />
-            <element signature="e#3947#3955#0" expanded="true" />
-            <element signature="e#4021#4038#0" expanded="true" />
-            <element signature="e#4091#4101#0" expanded="true" />
-            <element signature="e#4150#4158#0" expanded="true" />
-            <element signature="e#4210#4218#0" expanded="true" />
-            <element signature="e#4273#4281#0" expanded="true" />
-            <element signature="e#4332#4341#0" expanded="true" />
-            <element signature="e#4394#4404#0" expanded="true" />
-            <element signature="e#4449#4455#0" expanded="true" />
-            <element signature="e#4502#4509#0" expanded="true" />
-            <element signature="e#4556#4563#0" expanded="true" />
-            <element signature="e#4616#4626#0" expanded="true" />
-            <element signature="e#4689#4704#0" expanded="true" />
-            <element signature="e#4758#4765#0" expanded="true" />
-            <element signature="e#14089#14317#0" expanded="true" />
-            <element signature="e#14316#14317#0" expanded="true" />
-            <element signature="e#14397#15100#0" expanded="true" />
-            <element signature="e#15099#15100#0" expanded="true" />
-            <element signature="e#18379#18833#0" expanded="true" />
-            <element signature="e#18832#18833#0" expanded="true" />
-            <element signature="e#19371#19611#0" expanded="true" />
-            <element signature="e#19610#19611#0" expanded="true" />
-            <element signature="e#21063#21344#0" expanded="true" />
-            <element signature="e#21343#21344#0" expanded="true" />
-            <element signature="e#25336#25680#0" expanded="true" />
-            <element signature="e#25679#25680#0" expanded="true" />
-            <element signature="e#32312#32320#0" expanded="true" />
-            <element signature="e#35886#36798#0" expanded="true" />
-            <element signature="e#36797#36798#0" expanded="true" />
+            <element signature="e#4016#4024#0" expanded="true" />
+            <element signature="e#4076#4085#0" expanded="true" />
+            <element signature="e#4136#4145#0" expanded="true" />
+            <element signature="e#4196#4205#0" expanded="true" />
+            <element signature="e#4261#4269#0" expanded="true" />
+            <element signature="e#4326#4334#0" expanded="true" />
+            <element signature="e#4400#4417#0" expanded="true" />
+            <element signature="e#4470#4480#0" expanded="true" />
+            <element signature="e#4529#4537#0" expanded="true" />
+            <element signature="e#4589#4597#0" expanded="true" />
+            <element signature="e#4652#4660#0" expanded="true" />
+            <element signature="e#4711#4720#0" expanded="true" />
+            <element signature="e#4773#4783#0" expanded="true" />
+            <element signature="e#4828#4834#0" expanded="true" />
+            <element signature="e#4881#4888#0" expanded="true" />
+            <element signature="e#4935#4942#0" expanded="true" />
+            <element signature="e#4995#5005#0" expanded="true" />
+            <element signature="e#5068#5083#0" expanded="true" />
+            <element signature="e#5137#5144#0" expanded="true" />
+            <element signature="e#5429#5430#0" expanded="true" />
+            <element signature="e#5474#5475#0" expanded="true" />
+            <element signature="e#8134#8324#0" expanded="true" />
+            <element signature="e#8323#8324#0" expanded="true" />
+            <element signature="e#9544#9731#0" expanded="true" />
+            <element signature="e#9730#9731#0" expanded="true" />
+            <element signature="e#10734#10922#0" expanded="true" />
+            <element signature="e#10921#10922#0" expanded="true" />
+            <element signature="e#11643#11835#0" expanded="true" />
+            <element signature="e#11834#11835#0" expanded="true" />
+            <element signature="e#13189#13376#0" expanded="true" />
+            <element signature="e#13375#13376#0" expanded="true" />
+            <element signature="e#14190#14378#0" expanded="true" />
+            <element signature="e#14377#14378#0" expanded="true" />
+            <element signature="e#15015#15211#0" expanded="true" />
+            <element signature="e#15210#15211#0" expanded="true" />
+            <element signature="e#17593#17821#0" expanded="true" />
+            <element signature="e#17820#17821#0" expanded="true" />
+            <element signature="e#17908#18611#0" expanded="true" />
+            <element signature="e#18610#18611#0" expanded="true" />
+            <element signature="e#21896#22350#0" expanded="true" />
+            <element signature="e#22349#22350#0" expanded="true" />
+            <element signature="e#22888#23128#0" expanded="true" />
+            <element signature="e#23127#23128#0" expanded="true" />
+            <element signature="e#24663#24944#0" expanded="true" />
+            <element signature="e#24943#24944#0" expanded="true" />
+            <element signature="e#26563#26571#0" expanded="true" />
+            <element signature="e#26638#26657#0" expanded="true" />
+            <element signature="e#27192#27631#0" expanded="true" />
+            <element signature="e#27630#27631#0" expanded="true" />
+            <element signature="e#27823#28276#0" expanded="true" />
+            <element signature="e#28275#28276#0" expanded="true" />
+            <element signature="e#32104#33061#0" expanded="true" />
+            <element signature="e#33060#33061#0" expanded="true" />
+            <marker date="1481085702757" expanded="false" signature="33322:33337" ph=" { " />
+            <marker date="1481085702757" expanded="false" signature="33358:33368" ph=" }" />
+            <marker date="1481085702757" expanded="false" signature="39477:39485" ph="&lt;~&gt;" />
+            <marker date="1481085702757" expanded="false" signature="43051:43121" ph="() → {" />
+            <marker date="1481085702757" expanded="false" signature="43948:43963" ph="}" />
           </folding>
         </state>
       </provider>
@@ -2875,40 +3697,64 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3637#3645#0" expanded="true" />
-            <element signature="e#3697#3706#0" expanded="true" />
-            <element signature="e#3757#3766#0" expanded="true" />
-            <element signature="e#3817#3826#0" expanded="true" />
-            <element signature="e#3882#3890#0" expanded="true" />
-            <element signature="e#3947#3955#0" expanded="true" />
-            <element signature="e#4021#4038#0" expanded="true" />
-            <element signature="e#4091#4101#0" expanded="true" />
-            <element signature="e#4150#4158#0" expanded="true" />
-            <element signature="e#4210#4218#0" expanded="true" />
-            <element signature="e#4273#4281#0" expanded="true" />
-            <element signature="e#4332#4341#0" expanded="true" />
-            <element signature="e#4394#4404#0" expanded="true" />
-            <element signature="e#4449#4455#0" expanded="true" />
-            <element signature="e#4502#4509#0" expanded="true" />
-            <element signature="e#4556#4563#0" expanded="true" />
-            <element signature="e#4616#4626#0" expanded="true" />
-            <element signature="e#4689#4704#0" expanded="true" />
-            <element signature="e#4758#4765#0" expanded="true" />
-            <element signature="e#14089#14317#0" expanded="true" />
-            <element signature="e#14316#14317#0" expanded="true" />
-            <element signature="e#14397#15100#0" expanded="true" />
-            <element signature="e#15099#15100#0" expanded="true" />
-            <element signature="e#18379#18833#0" expanded="true" />
-            <element signature="e#18832#18833#0" expanded="true" />
-            <element signature="e#19371#19611#0" expanded="true" />
-            <element signature="e#19610#19611#0" expanded="true" />
-            <element signature="e#21063#21344#0" expanded="true" />
-            <element signature="e#21343#21344#0" expanded="true" />
-            <element signature="e#25336#25680#0" expanded="true" />
-            <element signature="e#25679#25680#0" expanded="true" />
-            <element signature="e#32312#32320#0" expanded="true" />
-            <element signature="e#35886#36798#0" expanded="true" />
-            <element signature="e#36797#36798#0" expanded="true" />
+            <element signature="e#4016#4024#0" expanded="true" />
+            <element signature="e#4076#4085#0" expanded="true" />
+            <element signature="e#4136#4145#0" expanded="true" />
+            <element signature="e#4196#4205#0" expanded="true" />
+            <element signature="e#4261#4269#0" expanded="true" />
+            <element signature="e#4326#4334#0" expanded="true" />
+            <element signature="e#4400#4417#0" expanded="true" />
+            <element signature="e#4470#4480#0" expanded="true" />
+            <element signature="e#4529#4537#0" expanded="true" />
+            <element signature="e#4589#4597#0" expanded="true" />
+            <element signature="e#4652#4660#0" expanded="true" />
+            <element signature="e#4711#4720#0" expanded="true" />
+            <element signature="e#4773#4783#0" expanded="true" />
+            <element signature="e#4828#4834#0" expanded="true" />
+            <element signature="e#4881#4888#0" expanded="true" />
+            <element signature="e#4935#4942#0" expanded="true" />
+            <element signature="e#4995#5005#0" expanded="true" />
+            <element signature="e#5068#5083#0" expanded="true" />
+            <element signature="e#5137#5144#0" expanded="true" />
+            <element signature="e#5429#5430#0" expanded="true" />
+            <element signature="e#5474#5475#0" expanded="true" />
+            <element signature="e#8134#8324#0" expanded="true" />
+            <element signature="e#8323#8324#0" expanded="true" />
+            <element signature="e#9544#9731#0" expanded="true" />
+            <element signature="e#9730#9731#0" expanded="true" />
+            <element signature="e#10734#10922#0" expanded="true" />
+            <element signature="e#10921#10922#0" expanded="true" />
+            <element signature="e#11643#11835#0" expanded="true" />
+            <element signature="e#11834#11835#0" expanded="true" />
+            <element signature="e#13189#13376#0" expanded="true" />
+            <element signature="e#13375#13376#0" expanded="true" />
+            <element signature="e#14190#14378#0" expanded="true" />
+            <element signature="e#14377#14378#0" expanded="true" />
+            <element signature="e#15015#15211#0" expanded="true" />
+            <element signature="e#15210#15211#0" expanded="true" />
+            <element signature="e#17593#17821#0" expanded="true" />
+            <element signature="e#17820#17821#0" expanded="true" />
+            <element signature="e#17908#18611#0" expanded="true" />
+            <element signature="e#18610#18611#0" expanded="true" />
+            <element signature="e#21896#22350#0" expanded="true" />
+            <element signature="e#22349#22350#0" expanded="true" />
+            <element signature="e#22888#23128#0" expanded="true" />
+            <element signature="e#23127#23128#0" expanded="true" />
+            <element signature="e#24663#24944#0" expanded="true" />
+            <element signature="e#24943#24944#0" expanded="true" />
+            <element signature="e#26563#26571#0" expanded="true" />
+            <element signature="e#26638#26657#0" expanded="true" />
+            <element signature="e#27192#27631#0" expanded="true" />
+            <element signature="e#27630#27631#0" expanded="true" />
+            <element signature="e#27823#28276#0" expanded="true" />
+            <element signature="e#28275#28276#0" expanded="true" />
+            <element signature="e#32104#33061#0" expanded="true" />
+            <element signature="e#33060#33061#0" expanded="true" />
+            <marker date="1481085702757" expanded="false" signature="33322:33337" ph=" { " />
+            <marker date="1481085702757" expanded="false" signature="33358:33368" ph=" }" />
+            <marker date="1481085702757" expanded="false" signature="39477:39485" ph="&lt;~&gt;" />
+            <marker date="1481085702757" expanded="false" signature="43051:43121" ph="() → {" />
+            <marker date="1481085702757" expanded="false" signature="43948:43963" ph="}" />
           </folding>
         </state>
       </provider>
@@ -2917,6 +3763,116 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/trip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="49" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/calendar_date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+          <folding>
+            <element signature="e#476#477#0" expanded="false" />
+            <element signature="e#509#510#0" expanded="false" />
+            <element signature="e#562#563#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="false" />
+            <element signature="e#638#639#0" expanded="false" />
+            <element signature="e#665#666#0" expanded="false" />
+            <element signature="e#706#707#0" expanded="false" />
+            <element signature="e#738#739#0" expanded="false" />
+            <element signature="e#780#781#0" expanded="false" />
+            <element signature="e#817#818#0" expanded="false" />
+            <element signature="e#878#879#0" expanded="false" />
+            <element signature="e#930#931#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          <folding>
+            <element signature="e#960#961#0" expanded="false" />
+            <element signature="e#993#994#0" expanded="false" />
+            <element signature="e#1046#1047#0" expanded="false" />
+            <element signature="e#1090#1091#0" expanded="false" />
+            <element signature="e#1124#1125#0" expanded="false" />
+            <element signature="e#1153#1154#0" expanded="false" />
+            <element signature="e#1198#1199#0" expanded="false" />
+            <element signature="e#1234#1235#0" expanded="false" />
+            <element signature="e#1269#1270#0" expanded="false" />
+            <element signature="e#1299#1300#0" expanded="false" />
+            <element signature="e#1346#1347#0" expanded="false" />
+            <element signature="e#1384#1385#0" expanded="false" />
+            <element signature="e#1421#1422#0" expanded="false" />
+            <element signature="e#1453#1454#0" expanded="false" />
+            <element signature="e#1504#1505#0" expanded="false" />
+            <element signature="e#1546#1547#0" expanded="false" />
+            <element signature="e#1582#1583#0" expanded="false" />
+            <element signature="e#1613#1614#0" expanded="false" />
+            <element signature="e#1662#1663#0" expanded="false" />
+            <element signature="e#1702#1703#0" expanded="false" />
+            <element signature="e#1736#1737#0" expanded="false" />
+            <element signature="e#1765#1766#0" expanded="false" />
+            <element signature="e#1810#1811#0" expanded="false" />
+            <element signature="e#1846#1847#0" expanded="false" />
+            <element signature="e#1882#1883#0" expanded="false" />
+            <element signature="e#1913#1914#0" expanded="false" />
+            <element signature="e#1962#1963#0" expanded="false" />
+            <element signature="e#2002#2003#0" expanded="false" />
+            <element signature="e#2036#2037#0" expanded="false" />
+            <element signature="e#2065#2066#0" expanded="false" />
+            <element signature="e#2110#2111#0" expanded="false" />
+            <element signature="e#2146#2147#0" expanded="false" />
+            <element signature="e#2184#2185#0" expanded="false" />
+            <element signature="e#2217#2218#0" expanded="false" />
+            <element signature="e#2270#2271#0" expanded="false" />
+            <element signature="e#2314#2315#0" expanded="false" />
+            <element signature="e#2350#2351#0" expanded="false" />
+            <element signature="e#2381#2382#0" expanded="false" />
+            <element signature="e#2430#2431#0" expanded="false" />
+            <element signature="e#2470#2471#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/busStop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/stopTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/busRT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="767">
+          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/route.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -2932,10 +3888,34 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/shape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+        <state relative-caret-position="338">
+          <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -2945,44 +3925,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cyberdyne/ctfastrak_android_application/MapsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="469" column="74" selection-start-line="469" selection-start-column="74" selection-end-line="469" selection-end-column="74" />
+        <state relative-caret-position="1550">
+          <caret line="180" column="56" selection-start-line="180" selection-start-column="56" selection-end-line="180" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3637#3645#0" expanded="true" />
-            <element signature="e#3697#3706#0" expanded="true" />
-            <element signature="e#3757#3766#0" expanded="true" />
-            <element signature="e#3817#3826#0" expanded="true" />
-            <element signature="e#3882#3890#0" expanded="true" />
-            <element signature="e#3947#3955#0" expanded="true" />
-            <element signature="e#4021#4038#0" expanded="true" />
-            <element signature="e#4091#4101#0" expanded="true" />
-            <element signature="e#4150#4158#0" expanded="true" />
-            <element signature="e#4210#4218#0" expanded="true" />
-            <element signature="e#4273#4281#0" expanded="true" />
-            <element signature="e#4332#4341#0" expanded="true" />
-            <element signature="e#4394#4404#0" expanded="true" />
-            <element signature="e#4449#4455#0" expanded="true" />
-            <element signature="e#4502#4509#0" expanded="true" />
-            <element signature="e#4556#4563#0" expanded="true" />
-            <element signature="e#4616#4626#0" expanded="true" />
-            <element signature="e#4689#4704#0" expanded="true" />
-            <element signature="e#4758#4765#0" expanded="true" />
-            <element signature="e#14089#14317#0" expanded="true" />
-            <element signature="e#14316#14317#0" expanded="true" />
-            <element signature="e#14397#15100#0" expanded="true" />
-            <element signature="e#15099#15100#0" expanded="true" />
-            <element signature="e#18379#18833#0" expanded="true" />
-            <element signature="e#18832#18833#0" expanded="true" />
-            <element signature="e#19371#19611#0" expanded="true" />
-            <element signature="e#19610#19611#0" expanded="true" />
-            <element signature="e#21063#21344#0" expanded="true" />
-            <element signature="e#21343#21344#0" expanded="true" />
-            <element signature="e#25336#25680#0" expanded="true" />
-            <element signature="e#25679#25680#0" expanded="true" />
-            <element signature="e#32312#32320#0" expanded="true" />
-            <element signature="e#35886#36798#0" expanded="true" />
-            <element signature="e#36797#36798#0" expanded="true" />
+            <element signature="e#4016#4024#0" expanded="true" />
+            <element signature="e#4076#4085#0" expanded="true" />
+            <element signature="e#4136#4145#0" expanded="true" />
+            <element signature="e#4196#4205#0" expanded="true" />
+            <element signature="e#4261#4269#0" expanded="true" />
+            <element signature="e#4326#4334#0" expanded="true" />
+            <element signature="e#4400#4417#0" expanded="true" />
+            <element signature="e#4470#4480#0" expanded="true" />
+            <element signature="e#4529#4537#0" expanded="true" />
+            <element signature="e#4589#4597#0" expanded="true" />
+            <element signature="e#4652#4660#0" expanded="true" />
+            <element signature="e#4711#4720#0" expanded="true" />
+            <element signature="e#4773#4783#0" expanded="true" />
+            <element signature="e#4828#4834#0" expanded="true" />
+            <element signature="e#4881#4888#0" expanded="true" />
+            <element signature="e#4935#4942#0" expanded="true" />
+            <element signature="e#4995#5005#0" expanded="true" />
+            <element signature="e#5068#5083#0" expanded="true" />
+            <element signature="e#5137#5144#0" expanded="true" />
+            <element signature="e#5429#5430#0" expanded="true" />
+            <element signature="e#5474#5475#0" expanded="true" />
+            <element signature="e#8134#8324#0" expanded="true" />
+            <element signature="e#8323#8324#0" expanded="true" />
+            <element signature="e#9544#9731#0" expanded="true" />
+            <element signature="e#9730#9731#0" expanded="true" />
+            <element signature="e#10734#10922#0" expanded="true" />
+            <element signature="e#10921#10922#0" expanded="true" />
+            <element signature="e#11643#11835#0" expanded="true" />
+            <element signature="e#11834#11835#0" expanded="true" />
+            <element signature="e#13189#13376#0" expanded="true" />
+            <element signature="e#13375#13376#0" expanded="true" />
+            <element signature="e#14190#14378#0" expanded="true" />
+            <element signature="e#14377#14378#0" expanded="true" />
+            <element signature="e#15015#15211#0" expanded="true" />
+            <element signature="e#15210#15211#0" expanded="true" />
+            <element signature="e#17593#17821#0" expanded="true" />
+            <element signature="e#17820#17821#0" expanded="true" />
+            <element signature="e#17908#18611#0" expanded="true" />
+            <element signature="e#18610#18611#0" expanded="true" />
+            <element signature="e#21896#22350#0" expanded="true" />
+            <element signature="e#22349#22350#0" expanded="true" />
+            <element signature="e#22888#23128#0" expanded="true" />
+            <element signature="e#23127#23128#0" expanded="true" />
+            <element signature="e#24663#24944#0" expanded="true" />
+            <element signature="e#24943#24944#0" expanded="true" />
+            <element signature="e#26563#26571#0" expanded="true" />
+            <element signature="e#26638#26657#0" expanded="true" />
+            <element signature="e#27192#27631#0" expanded="true" />
+            <element signature="e#27630#27631#0" expanded="true" />
+            <element signature="e#27823#28276#0" expanded="true" />
+            <element signature="e#28275#28276#0" expanded="true" />
+            <element signature="e#32104#33061#0" expanded="true" />
+            <element signature="e#33060#33061#0" expanded="true" />
+            <marker date="1481085702757" expanded="false" signature="33322:33337" ph=" { " />
+            <marker date="1481085702757" expanded="false" signature="33358:33368" ph=" }" />
+            <marker date="1481085702757" expanded="false" signature="39477:39485" ph="&lt;~&gt;" />
+            <marker date="1481085702757" expanded="false" signature="43051:43121" ph="() → {" />
+            <marker date="1481085702757" expanded="false" signature="43948:43963" ph="}" />
           </folding>
         </state>
       </provider>

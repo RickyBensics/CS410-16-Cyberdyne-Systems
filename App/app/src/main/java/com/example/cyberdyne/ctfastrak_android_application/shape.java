@@ -4,7 +4,7 @@ package com.example.cyberdyne.ctfastrak_android_application;
  * Created by Richard on 11/5/2016.
  */
 
-public class shape {
+public class shape implements java.io.Serializable{
     Integer shape_id;
     Double shape_pt_lat;
     Double shape_pt_lon;

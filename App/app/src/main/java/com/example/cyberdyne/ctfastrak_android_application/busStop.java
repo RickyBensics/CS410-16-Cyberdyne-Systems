@@ -4,7 +4,7 @@ package com.example.cyberdyne.ctfastrak_android_application;
  * Created by Richard on 10/30/2016.
  */
 
-public class busStop {
+public class busStop implements java.io.Serializable{
     Double stop_lat;
     String stop_code;
     Double stop_lon;

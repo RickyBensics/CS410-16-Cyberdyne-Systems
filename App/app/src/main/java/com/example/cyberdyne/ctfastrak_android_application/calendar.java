@@ -4,7 +4,7 @@ package com.example.cyberdyne.ctfastrak_android_application;
  * Created by Richard on 11/18/2016.
  */
 
-public class calendar {
+public class calendar implements java.io.Serializable{
     Integer service_id;
     Integer monday;
     Integer tuesday;
