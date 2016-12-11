@@ -6,6 +6,7 @@ import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
@@ -19,15 +20,28 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.*;
+import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.graphics.drawable.BitmapDrawable;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import android.util.Log;
@@ -40,6 +54,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -70,7 +85,7 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class MapsActivity extends AppCompatActivity
-        implements  OnInfoWindowClickListener, OnMapReadyCallback {
+        implements OnInfoWindowClickListener, OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
 
     private static final LatLngBounds CONNECTICUT = new LatLngBounds( // restrictions for scrolling
             new LatLng(41.1, -73.65), new LatLng(42.02, -71.8)); // bottom left of map to top right of map
@@ -95,15 +110,17 @@ public class MapsActivity extends AppCompatActivity
     private String JSONData;
     private JSONObject obj, vehiclePosition, vehicle, position, trip;
     private JSONArray entity;
-    private int RTinfoUpdated=0;
+    private int RTinfoUpdated = 0;
     private LinearLayout buttonList;
-    private LinearLayout arrivalAndDeparture;
     private LinearLayout.LayoutParams layoutParameters;
 
     private busStop departureLocation;
     private busStop arrivalLocation;
 
     private ProgressDialog myProgress;
+
+    private boolean mPermissionDenied = false;
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
     ArrayList<LatLng> coordinates = new ArrayList<LatLng>();
     ArrayList<Integer> shape_ids = new ArrayList<Integer>();
@@ -129,9 +146,9 @@ public class MapsActivity extends AppCompatActivity
     final int delay = 30000; // update every 30 seconds
     final SimpleDateFormat simpleFormatter = new SimpleDateFormat("HH:mm:ss");
 
-    class AsyncData extends AsyncTask<Void, Void, Void>{
+    class AsyncData extends AsyncTask<Void, Void, Void> {
 
-        public AsyncData(ProgressDialog progress){
+        public AsyncData(ProgressDialog progress) {
             myProgress = progress;
         }
 
@@ -178,18 +195,7 @@ public class MapsActivity extends AppCompatActivity
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        infoBox = (TextView)findViewById(R.id.textView);
-
-        View toolbar = ((View) findViewById(R.id.map).getRootView().findViewById(Integer.parseInt("1")).
-                getParent()).findViewById(Integer.parseInt("4"));
-
-
-        // trying to move around the maps toolbar. Not working right now
-        RelativeLayout.LayoutParams rlp = (RelativeLayout.LayoutParams) toolbar.getLayoutParams();
-        // position on right bottom
-        rlp.addRule(RelativeLayout.ALIGN_PARENT_TOP, 0);
-        rlp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
-        rlp.setMargins(0, 0, 0, 0); // left, top, right, bottom
+        infoBox = (TextView) findViewById(R.id.textView);
 
     }
 
@@ -204,7 +210,7 @@ public class MapsActivity extends AppCompatActivity
         currentMap = map;
     }
 
-    public void loadGTFSInfo(){
+    public void loadGTFSInfo() {
         AssetManager am = getAssets(); // gets files from assets folder
         InputStreamReader ims = null;
         BufferedReader reader = null;
@@ -223,33 +229,23 @@ public class MapsActivity extends AppCompatActivity
             reader.readLine();
             while ((line = reader.readLine()) != null) {
                 GTFSinfo = line.split(",");
-                calendars.add(new calendar(Integer.parseInt(GTFSinfo[0]),Integer.parseInt(GTFSinfo[1]),Integer.parseInt(GTFSinfo[2]),Integer.parseInt(GTFSinfo[3]),Integer.parseInt(GTFSinfo[4]),Integer.parseInt(GTFSinfo[5]),Integer.parseInt(GTFSinfo[6]),Integer.parseInt(GTFSinfo[7]),Integer.parseInt(GTFSinfo[8]),Integer.parseInt(GTFSinfo[9])));
+                calendars.add(new calendar(Integer.parseInt(GTFSinfo[0]), Integer.parseInt(GTFSinfo[1]), Integer.parseInt(GTFSinfo[2]), Integer.parseInt(GTFSinfo[3]), Integer.parseInt(GTFSinfo[4]), Integer.parseInt(GTFSinfo[5]), Integer.parseInt(GTFSinfo[6]), Integer.parseInt(GTFSinfo[7]), Integer.parseInt(GTFSinfo[8]), Integer.parseInt(GTFSinfo[9])));
             }
             calendarDay = Calendar.getInstance();
 
             currentDay = calendarDay.get(Calendar.DAY_OF_WEEK); // 1 = Sunday, ... , 7 = Saturday
-            if(currentDay > 1 && currentDay < 7) // Weekday schedule. This should not be hardcoded!!!
+            if (currentDay > 1 && currentDay < 7) // Weekday schedule. This should not be hardcoded!!!
             {
                 service_id = 1;
-            }
-            else if (currentDay == 7) // Saturday
+            } else if (currentDay == 7) // Saturday
             {
                 service_id = 2;
-            }
-            else
-            {
+            } else {
                 service_id = 3; // Sunday
             }
             System.out.println("the current day is: " + service_id);
 
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-
-                    myProgress.setMessage("loading trips information...");
-
-                }
-            });
+            updateProgressDialog("loading trips information...");
             ims = new InputStreamReader(am.open("trips.txt"), "UTF-8");
             reader = new BufferedReader(ims);
             reader.readLine();
@@ -266,14 +262,7 @@ public class MapsActivity extends AppCompatActivity
             }
             System.out.println("Number of trips: " + trips.size());
 
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-
-                    myProgress.setMessage("loading shapes information...");
-
-                }
-            });
+            updateProgressDialog("loading route shapes information...");
             ims = new InputStreamReader(am.open("shapes.txt"), "UTF-8");
             reader = new BufferedReader(ims);
             reader.readLine();
@@ -286,14 +275,7 @@ public class MapsActivity extends AppCompatActivity
             }
             System.out.println("Number of vertices: " + shapes.size());
 
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-
-                    myProgress.setMessage("loading stop times information...");
-
-                }
-            });
+            updateProgressDialog("loading stop times information...");
             ims = new InputStreamReader(am.open("stop_times.txt"), "UTF-8"); // reads stop_times.txt and puts  comma separated values into arrayList of busStop objects
             reader = new BufferedReader(ims);
             reader.readLine(); // skip the first line of the text file
@@ -303,7 +285,7 @@ public class MapsActivity extends AppCompatActivity
                     if (!stop_ids.contains(Integer.parseInt(GTFSinfo[3]))) {
                         stop_ids.add(Integer.parseInt(GTFSinfo[3]));
                     }
-                    if(GTFSinfo.length == 9)
+                    if (GTFSinfo.length == 9)
                         stopTimes.add(new stopTime(Integer.parseInt(GTFSinfo[0]), GTFSinfo[1], GTFSinfo[2], Integer.parseInt(GTFSinfo[3]), Integer.parseInt(GTFSinfo[4]), null, Integer.parseInt(GTFSinfo[6]), Integer.parseInt(GTFSinfo[7]), Double.parseDouble(GTFSinfo[8])));
                     else
                         stopTimes.add(new stopTime(Integer.parseInt(GTFSinfo[0]), GTFSinfo[1], GTFSinfo[2], Integer.parseInt(GTFSinfo[3]), Integer.parseInt(GTFSinfo[4]), null, Integer.parseInt(GTFSinfo[6]), Integer.parseInt(GTFSinfo[7]), null));
@@ -311,14 +293,7 @@ public class MapsActivity extends AppCompatActivity
             }
             System.out.println("Number of stop times: " + stopTimes.size());
 
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-
-                    myProgress.setMessage("loading stops information...");
-
-                }
-            });
+            updateProgressDialog("loading stops information...");
             ims = new InputStreamReader(am.open("stops.txt"), "UTF-8"); // reads stops.txt and puts  comma separated values into arrayList of busStop objects
             reader = new BufferedReader(ims);
             reader.readLine(); // skip the first line of the text file
@@ -330,14 +305,8 @@ public class MapsActivity extends AppCompatActivity
             }
             System.out.println("Number of stops: " + busStops.size());
 
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
 
-                    myProgress.setMessage("loading routes information...");
-
-                }
-            });
+            updateProgressDialog("loading routes information...");
             ims = new InputStreamReader(am.open("routes.txt"), "UTF-8");
             reader = new BufferedReader(ims);
             reader.readLine();
@@ -350,14 +319,7 @@ public class MapsActivity extends AppCompatActivity
                     }
             }
 
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-
-                    myProgress.setMessage("loading calendar dates information...");
-
-                }
-            });
+            updateProgressDialog("loading calendar dates information...");
             ims = new InputStreamReader(am.open("calendar_dates.txt"), "UTF-8"); // These are exceptions to the regular calendar. It is not implemented yet
             reader = new BufferedReader(ims);
             reader.readLine();
@@ -371,7 +333,81 @@ public class MapsActivity extends AppCompatActivity
         }
     }
 
-    public void enableInteraction(){
+    public void updateProgressDialog(String string){
+        final String UiString = string;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+                myProgress.setMessage(UiString);
+
+            }
+        });
+    }
+
+    @Override
+    public boolean onMyLocationButtonClick() {
+        Toast.makeText(this, "MyLocation button clicked", Toast.LENGTH_SHORT).show();
+        // Return false so that we don't consume the event and the default behavior still occurs
+        // (the camera animates to the user's current position).
+        return false;
+    }
+
+    /**
+     * Enables the My Location layer if the fine location permission has been granted.
+     */
+    private void enableMyLocation() {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Permission to access the location is missing.
+            PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION, true);
+        } else if (currentMap != null) {
+            // Access to the location has been granted to the app.
+            currentMap.setMyLocationEnabled(true);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if (requestCode != LOCATION_PERMISSION_REQUEST_CODE) {
+            return;
+        }
+
+        if (PermissionUtils.isPermissionGranted(permissions, grantResults,
+                Manifest.permission.ACCESS_FINE_LOCATION)) {
+            // Enable the my location layer if the permission has been granted.
+            enableMyLocation();
+        } else {
+            // Display the missing permission error dialog when the fragments resume.
+            mPermissionDenied = true;
+        }
+    }
+
+    @Override
+    protected void onResumeFragments() {
+        super.onResumeFragments();
+        if (mPermissionDenied) {
+            // Permission was not granted, display error dialog.
+            showMissingPermissionError();
+            mPermissionDenied = false;
+        }
+    }
+
+    /**
+     * Displays a dialog with error message explaining that the location permission is missing.
+     */
+    private void showMissingPermissionError() {
+        PermissionUtils.PermissionDeniedDialog
+                .newInstance(true).show(getSupportFragmentManager(), "dialog");
+    }
+
+    public void enableInteraction() {
+
+        currentMap.setPadding(0,100,0,500);
+        currentMap.setOnMyLocationButtonClickListener(this);
+        enableMyLocation();
 
         lineSelected = false;
 
@@ -401,7 +437,6 @@ public class MapsActivity extends AppCompatActivity
         displayRouteButtons();
 
         /* DISPLAY BUS STOPS ON POLYLINE CLICK */
-        //Requires a lot of tinkering!
         currentMap.setOnPolylineClickListener(new GoogleMap.OnPolylineClickListener() { // Add a listener for polyline clicks
             @Override
             public void onPolylineClick(Polyline polyline) {
@@ -454,6 +489,7 @@ public class MapsActivity extends AppCompatActivity
         polylines.get(index).setZIndex(zIndex);
     }
 
+
     public void selectPolyline(Polyline polyline) {
         System.out.println("Polyline selected: " + polyline.getId());
         buttonList.removeAllViews();
@@ -476,7 +512,8 @@ public class MapsActivity extends AppCompatActivity
                                 for (int n = 0; n < busStops.size(); n++) {
                                     if (busStops.get(n).getStop_id().intValue() == stopTimes.get(m).getStop_id().intValue()) {
                                         //System.out.println("Marker added");
-                                        markers.add(currentMap.addMarker(new MarkerOptions().position(new LatLng(busStops.get(n).getStop_lat(), busStops.get(n).getStop_lon())).title(busStops.get(n).getStop_name())));
+
+                                        markers.add(currentMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_stop)).position(new LatLng(busStops.get(n).getStop_lat(), busStops.get(n).getStop_lon())).title(busStops.get(n).getStop_name())));
                                         markers.get(markers.size()-1).setTag(n);
                                         lineSelected = true;
                                         final Button myButton = new Button(this); // Buttons will have to be dynamically added into the scrollview instead of regular text to make the route / busStop selectable from the infoBox
@@ -566,137 +603,133 @@ public class MapsActivity extends AppCompatActivity
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-        buttonList.removeAllViews();
+        if(!marker.getTag().equals(-1)) { //-1 is specified to be a realtime bus marker, not a bus stop
+            buttonList.removeAllViews();
 
-        currentMap.animateCamera(CameraUpdateFactory.newLatLng(marker.getPosition()));
-        marker.showInfoWindow();
-        Integer markerId = (Integer) marker.getTag(); //We need to get the relevant busStop info knowing which markerTag was selected
-        final int id = busStops.get(markerId).getStop_id();
-        ArrayList<String> headsigns = new ArrayList<String>();
-        ArrayList<ArrayList<String>> buttonInfo = new ArrayList<ArrayList<String>>();
-        int headsignIndex = 0, timeIndex = 0;
-        busStop stopMarker;
+            currentMap.animateCamera(CameraUpdateFactory.newLatLng(marker.getPosition()));
+            marker.showInfoWindow();
+            Integer markerId = (Integer) marker.getTag(); //We need to get the relevant busStop info knowing which markerTag was selected
+            final int id = busStops.get(markerId).getStop_id();
+            ArrayList<String> headsigns = new ArrayList<String>();
+            ArrayList<ArrayList<String>> buttonInfo = new ArrayList<ArrayList<String>>();
+            int headsignIndex = 0, timeIndex = 0;
+            busStop stopMarker;
 
-        final TextView textView = new TextView(this);
-        textView.setText("Bus Stop: " + busStops.get(markerId).getStop_name());
-        textView.setGravity(Gravity.CENTER);
-        textView.setTextAppearance(this, android.R.style.TextAppearance_Large);
-        buttonList.addView(textView, layoutParameters);
+            final TextView textView = new TextView(this);
+            textView.setText("Bus Stop: " + busStops.get(markerId).getStop_name());
+            textView.setGravity(Gravity.CENTER);
+            textView.setTextAppearance(this, android.R.style.TextAppearance_Large);
+            buttonList.addView(textView, layoutParameters);
 
-        final Button departure = new Button(this);
-        departure.setText("Set stop as departure");
-        departure.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                for(busStop stop : busStops)
-                if(stop.getStop_id().intValue() == id) {
-                    departureLocation = stop;
-                    System.out.println("Stop " + departureLocation.getStop_name() + " is selected as the departure location");
-                    break;
-                }
-            }
-        });
-        buttonList.addView(departure, layoutParameters);
-        final Button arrival = new Button(this);
-        arrival.setText("Set stop as arrival");
-        arrival.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                for(busStop stop : busStops)
-                    if(stop.getStop_id().intValue() == id) {
-                        arrivalLocation = stop;
-                        System.out.println("Stop " + arrivalLocation.getStop_name() + " is selected as the arrival location");
-                        break;
-                    }
-            }
-        });
-        buttonList.addView(arrival, layoutParameters);
-
-
-        info = new StringBuilder("");
-        for (stopTime stop : stopTimes) { // for each stop in the stopTimes array, append the relevant stop arrival and destination times
-            if (stop.getStop_id().intValue() == id) {
-                for(int i = 0; i < trips.size(); i++){
-                    if(trips.get(i).getTrip_id().intValue() == stop.getTrip_id().intValue() && trips.get(i).getService_id().intValue() == service_id && trips.get(i).getRoute_id() == selectedPolyline){
-                        System.out.println("Trip: " + trips.get(i).getTrip_id() + " with name " + trips.get(i).getTrip_headsign() + " at stop id " + id + " matching " + stop.getStop_id() + " on Polyline " + trips.get(i).getRoute_id() + " matching " + selectedPolyline);
-                        //if(!(headsign.equals(prevHeadsign))) { // The logic here assumes that headsigns are grouped together in GTFS file, which it isn't, so the logic has to be modified here
-                        if(!headsigns.contains(trips.get(i).getTrip_headsign())) {
-                            headsigns.add(trips.get(i).getTrip_headsign());
-                            headsignIndex++;
-                            buttonInfo.add(new ArrayList<String>());
+            final Button departure = new Button(this);
+            departure.setText("Set stop as departure");
+            departure.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    for (busStop stop : busStops)
+                        if (stop.getStop_id().intValue() == id) {
+                            departureLocation = stop;
+                            System.out.println("Stop " + departureLocation.getStop_name() + " is selected as the departure location");
+                            break;
                         }
-                        for(int j = 0; j < headsigns.size(); j++)
-                        {
-                            if (trips.get(i).getTrip_headsign().compareTo(headsigns.get(j))==0) {
-                                buttonInfo.get(j).add(stop.getDeparture_time() + "," + stop.getStop_id() + "," + i);
-                                break;
+                }
+            });
+            buttonList.addView(departure, layoutParameters);
+            final Button arrival = new Button(this);
+            arrival.setText("Set stop as arrival");
+            arrival.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    for (busStop stop : busStops)
+                        if (stop.getStop_id().intValue() == id) {
+                            arrivalLocation = stop;
+                            System.out.println("Stop " + arrivalLocation.getStop_name() + " is selected as the arrival location");
+                            break;
+                        }
+                }
+            });
+            buttonList.addView(arrival, layoutParameters);
+
+
+            info = new StringBuilder("");
+            for (stopTime stop : stopTimes) { // for each stop in the stopTimes array, append the relevant stop arrival and destination times
+                if (stop.getStop_id().intValue() == id) {
+                    for (int i = 0; i < trips.size(); i++) {
+                        if (trips.get(i).getTrip_id().intValue() == stop.getTrip_id().intValue() && trips.get(i).getService_id().intValue() == service_id && trips.get(i).getRoute_id() == selectedPolyline) {
+                            System.out.println("Trip: " + trips.get(i).getTrip_id() + " with name " + trips.get(i).getTrip_headsign() + " at stop id " + id + " matching " + stop.getStop_id() + " on Polyline " + trips.get(i).getRoute_id() + " matching " + selectedPolyline);
+                            //if(!(headsign.equals(prevHeadsign))) { // The logic here assumes that headsigns are grouped together in GTFS file, which it isn't, so the logic has to be modified here
+                            if (!headsigns.contains(trips.get(i).getTrip_headsign())) {
+                                headsigns.add(trips.get(i).getTrip_headsign());
+                                headsignIndex++;
+                                buttonInfo.add(new ArrayList<String>());
                             }
-                        }
-                        break;
-                    }
-                }
-            }
-        }
-
-        for(int i = 0; i < headsigns.size(); i++)
-        {
-            Collections.sort(buttonInfo.get(i));
-        }
-
-        for(int i = 0; i < headsigns.size(); i++)
-        {
-            final TextView myTextView = new TextView(this);
-            myTextView.setText("Route: " + headsigns.get(i).toString());
-            myTextView.setGravity(Gravity.CENTER);
-            myTextView.setTextAppearance(this, android.R.style.TextAppearance_Large);
-            buttonList.addView(myTextView, layoutParameters);
-
-            for(int j = 0; j < buttonInfo.get(i).size(); j++)
-            {
-                String[] info = buttonInfo.get(i).get(j).split(",");
-                final Button myButton = new Button(this); // Buttons will have to be dynamically added into the scrollview instead of regular text to make the route / busStop selectable from the infoBox
-                myButton.setText(info[0]);
-
-                Calendar departureTime = Calendar.getInstance();
-                try {
-                    departureTime.setTime(simpleFormatter.parse(info[0]));
-                }
-                catch (ParseException e)
-                {
-                    e.printStackTrace();
-                }
-                if (departureTime.getTime().getHours() < calendarDay.getTime().getHours() || (departureTime.getTime().getHours() == calendarDay.getTime().getHours() && departureTime.getTime().getMinutes() < calendarDay.getTime().getMinutes())) { // make past times unselectable
-                    myButton.setTextAppearance(this, android.R.style.TextAppearance_Small);
-                    myButton.setPaintFlags(myButton.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                    myButton.setClickable(false);
-                }
-                else {
-                    System.out.println(info[0] + " " + info[1] + " " + info[2]);
-                    myButton.setId(Integer.parseInt(info[1]));
-                    final int trip = Integer.parseInt(info[2]);
-
-                    myButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            System.out.println(myButton.getText() + " has trip_id " + trips.get(trip).getTrip_id() + " and has id " + myButton.getId());
-                            for(busStop stop : busStops)
-                            {
-                                if(stop.getStop_id().intValue() == myButton.getId())
-                                {
-                                    System.out.println(stop.getStop_id().intValue() + " matches " + myButton.getId());
-                                    departureLocation = stop;
-                                    System.out.println("Stop " + departureLocation.getStop_name() + " is selected as the departure location");
+                            for (int j = 0; j < headsigns.size(); j++) {
+                                if (trips.get(i).getTrip_headsign().compareTo(headsigns.get(j)) == 0) {
+                                    buttonInfo.get(j).add(stop.getDeparture_time() + "," + stop.getStop_id() + "," + i);
                                     break;
                                 }
                             }
+                            break;
                         }
-                    });
+                    }
                 }
+            }
 
-                buttonList.addView(myButton, layoutParameters);
+            for (int i = 0; i < headsigns.size(); i++) {
+                Collections.sort(buttonInfo.get(i));
+            }
+
+            for (int i = 0; i < headsigns.size(); i++) {
+                final TextView myTextView = new TextView(this);
+                myTextView.setText("Route: " + headsigns.get(i).toString());
+                myTextView.setGravity(Gravity.CENTER);
+                myTextView.setTextAppearance(this, android.R.style.TextAppearance_Large);
+                buttonList.addView(myTextView, layoutParameters);
+
+                for (int j = 0; j < buttonInfo.get(i).size(); j++) {
+                    String[] info = buttonInfo.get(i).get(j).split(",");
+                    final Button myButton = new Button(this); // Buttons will have to be dynamically added into the scrollview instead of regular text to make the route / busStop selectable from the infoBox
+                    myButton.setText(info[0]);
+
+                    Calendar departureTime = Calendar.getInstance();
+                    try {
+                        departureTime.setTime(simpleFormatter.parse(info[0]));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    if (departureTime.getTime().getHours() < calendarDay.getTime().getHours() || (departureTime.getTime().getHours() == calendarDay.getTime().getHours() && departureTime.getTime().getMinutes() < calendarDay.getTime().getMinutes())) { // make past times unselectable
+                        myButton.setTextAppearance(this, android.R.style.TextAppearance_Small);
+                        myButton.setPaintFlags(myButton.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                        myButton.setClickable(false);
+                    } else {
+                        System.out.println(info[0] + " " + info[1] + " " + info[2]);
+                        myButton.setId(Integer.parseInt(info[1]));
+                        final int trip = Integer.parseInt(info[2]);
+
+                        myButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                System.out.println(myButton.getText() + " has trip_id " + trips.get(trip).getTrip_id() + " and has id " + myButton.getId());
+                                for (busStop stop : busStops) {
+                                    if (stop.getStop_id().intValue() == myButton.getId()) {
+                                        System.out.println(stop.getStop_id().intValue() + " matches " + myButton.getId());
+                                        departureLocation = stop;
+                                        System.out.println("Stop " + departureLocation.getStop_name() + " is selected as the departure location");
+                                        break;
+                                    }
+                                }
+                            }
+                        });
+                    }
+
+                    buttonList.addView(myButton, layoutParameters);
+                }
             }
         }
     }
+
+
+
 
     private class JsonTask extends AsyncTask<String, String, String> { // all JSON parsing logic goes here
         protected void onPreExecute() {
@@ -838,8 +871,9 @@ public class MapsActivity extends AppCompatActivity
             if (busMarkersIds.isEmpty()) { // add markers when the line is clicked
                 for (int i = 0; i < realtimeBuses.size(); i++)
                     if (routes.get(routeIndex).getRoute_id().intValue() == realtimeBuses.get(i).getRoute_id().intValue()) {
-                        busMarkers.add(currentMap.addMarker(new MarkerOptions().position(new LatLng(realtimeBuses.get(i).getLatitude(), realtimeBuses.get(i).getLongitude())).title(realtimeBuses.get(i).getId().toString()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))));
+                        busMarkers.add(currentMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)).position(new LatLng(realtimeBuses.get(i).getLatitude(), realtimeBuses.get(i).getLongitude())).title(realtimeBuses.get(i).getId().toString()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))));
                         busMarkersIds.add(realtimeBuses.get(i).getId().toString());
+                        busMarkers.get(busMarkers.size()-1).setTag(-1);
                     }
             }
             else {
@@ -861,8 +895,9 @@ public class MapsActivity extends AppCompatActivity
                     if(!busMarkersIds.contains(busIDsOnRoute.get(j))) {
                         for (int i = 0; i < realtimeBuses.size(); i++)
                             if (routes.get(routeIndex).getRoute_id().intValue() == realtimeBuses.get(i).getRoute_id().intValue()) {
-                                busMarkers.add(currentMap.addMarker(new MarkerOptions().position(new LatLng(realtimeBuses.get(i).getLatitude(), realtimeBuses.get(i).getLongitude())).title(realtimeBuses.get(i).getId().toString()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))));
+                                busMarkers.add(currentMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)).position(new LatLng(realtimeBuses.get(i).getLatitude(), realtimeBuses.get(i).getLongitude())).title(realtimeBuses.get(i).getId().toString()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))));
                                 busMarkersIds.add(realtimeBuses.get(i).getId().toString());
+                                busMarkers.get(busMarkers.size()-1).setTag(-1);
                             }
                     }
                 }

@@ -77,23 +77,6 @@ android:layout_height="match_parent">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></LinearLayout>
 
-            <!--<Button
-                android:text="Select a route. Bus stops along that route will appear. Select a route and tap on the title to view arrival and departure times here!!!"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="0dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:id="@+id/button2" />-->
-
-            <!--<ButtonLayout
-                android:id="@+id/buttonlayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Select a route. Bus stops along that route will appear. Select a route and tap on the title to view arrival and departure times here!!!" /-->
 
         </LinearLayout>
     </ScrollView>
