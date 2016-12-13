@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import android.*;
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -31,7 +32,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
+import android.location.Address;
 import android.location.Criteria;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
@@ -49,6 +52,9 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -65,6 +71,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
@@ -116,6 +123,13 @@ public class MapsActivity extends AppCompatActivity
 
     private busStop departureLocation;
     private busStop arrivalLocation;
+
+    private static String[] stops;
+    private AutoCompleteTextView search;
+    private ArrayAdapter<String> adapter;
+
+    private float previousZoomLevel = -1.0f;
+    private boolean isZooming = false;
 
     private ProgressDialog myProgress;
 
@@ -196,7 +210,6 @@ public class MapsActivity extends AppCompatActivity
                 (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         infoBox = (TextView) findViewById(R.id.textView);
-
     }
 
     @Override
@@ -431,6 +444,20 @@ public class MapsActivity extends AppCompatActivity
             polylines.add(currentMap.addPolyline(polylineOptions.get(polylineOptions.size()-1)));
 
             coordinates.clear();
+
+            //Set up AutoCompleteTextView adapter
+            search = (AutoCompleteTextView) findViewById(R.id.searchBox);
+            if(busStops.size() > 0) {
+                stops = new String[busStops.size()];
+                for (int index = 0; index < busStops.size(); index++) {
+                    stops[index] = busStops.get(index).getStop_name();
+                }
+            } else {
+                stops = new String[1];
+                stops[0] = "error";
+            }
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(MapsActivity.this,android.R.layout.select_dialog_item,stops);
+            search.setAdapter(adapter);
         }
 
         /* LIST OF ROUTES IN INFOBOX */
@@ -465,6 +492,14 @@ public class MapsActivity extends AppCompatActivity
 
         // Set a listener for marker click.
         currentMap.setOnInfoWindowClickListener(this);
+
+        // Set a listener for camera move
+//        currentMap.setOnCameraMoveListener(new GoogleMap.OnCameraMoveListener() {
+//            @Override
+//            public void onCameraMove() {
+//
+//            }
+//        });
     }
 
     public void clearMarkersOnMap(){
@@ -586,16 +621,50 @@ public class MapsActivity extends AppCompatActivity
 
     public void onButtonClick(View v) {
         if(v.getId() == R.id.searchButton) {
-            String compareSrch;
-            EditText search = (EditText)findViewById(R.id.searchBox);
 
-            compareSrch = search.getText().toString();
+            //Hide keyboard on search
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 
-            for(Marker stopMarker : markers){ // This will only work if the route with the bus stop is selected. The search must be able to find the bus stop if the route is not selected. This should probably use busStops arraylist instead. Also, how about searching for routes too?
-                if(compareSrch.equalsIgnoreCase(stopMarker.getTitle())){ // It's unlikely that the user will enter the busStop title word for word. maybe use String contains() in the case that the user enters a substring of a busStop name, and the user can select from a list of stops that contain that substring
-                    currentMap.animateCamera(CameraUpdateFactory.newLatLng(stopMarker.getPosition()));
-                    stopMarker.showInfoWindow();
-                    break;
+            search = (AutoCompleteTextView) findViewById(R.id.searchBox);
+            String location = search.getText().toString();
+            double lat = 0;
+            double lng = 0;
+            String stopName = "";
+            List<Address>addressList = null;
+
+            //clear map before searching
+            clearMarkersOnMap();
+
+            if(location != null || location.equals("")) {
+                Geocoder geocoder = new Geocoder(this);
+                try {
+                    //Search though bus stops to find by name
+                    for(busStop busStop : busStops) {
+                        if(busStop.getStop_name().equalsIgnoreCase(location)) {
+                            lat = busStop.getStop_lat();
+                            lng = busStop.getStop_lon();
+                            stopName = busStop.getStop_name();
+                            break;
+                        }
+                    }
+                    //Find 1 address using geocoder
+                    if(lat != 0 && lng != 0)
+                        addressList = geocoder.getFromLocation(lat, lng, 1);
+                } catch(IOException e) {
+                    e.printStackTrace();
+                }
+                if(lat != 0 && lng != 0) {
+                    //Get the address found using geocoder
+                    Address address = addressList.get(0);
+                    LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                    Marker marker = currentMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_stop)).position(latLng).title(stopName));
+                    currentMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                    marker.showInfoWindow();
+
+                    //Add marker to array so it gets cleared
+                    marker.setTag(-1);
+                    markers.add(marker);
                 }
             }
         }
