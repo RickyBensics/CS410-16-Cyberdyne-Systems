@@ -444,21 +444,21 @@ public class MapsActivity extends AppCompatActivity
             polylines.add(currentMap.addPolyline(polylineOptions.get(polylineOptions.size()-1)));
 
             coordinates.clear();
-
-            //Set up AutoCompleteTextView adapter
-            search = (AutoCompleteTextView) findViewById(R.id.searchBox);
-            if(busStops.size() > 0) {
-                stops = new String[busStops.size()];
-                for (int index = 0; index < busStops.size(); index++) {
-                    stops[index] = busStops.get(index).getStop_name();
-                }
-            } else {
-                stops = new String[1];
-                stops[0] = "error";
-            }
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(MapsActivity.this,android.R.layout.select_dialog_item,stops);
-            search.setAdapter(adapter);
         }
+
+        //Set up AutoCompleteTextView adapter
+        search = (AutoCompleteTextView) findViewById(R.id.searchBox);
+        if(busStops.size() > 0) {
+            stops = new String[busStops.size()];
+            for (int index = 0; index < busStops.size(); index++) {
+                stops[index] = busStops.get(index).getStop_name();
+            }
+        } else {
+            stops = new String[1];
+            stops[0] = "error";
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MapsActivity.this,android.R.layout.select_dialog_item,stops);
+        search.setAdapter(adapter);
 
         /* LIST OF ROUTES IN INFOBOX */
         displayRouteButtons();
@@ -494,12 +494,18 @@ public class MapsActivity extends AppCompatActivity
         currentMap.setOnInfoWindowClickListener(this);
 
         // Set a listener for camera move
-//        currentMap.setOnCameraMoveListener(new GoogleMap.OnCameraMoveListener() {
-//            @Override
-//            public void onCameraMove() {
-//
-//            }
-//        });
+        currentMap.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
+            @Override
+            public void onCameraChange(CameraPosition position) {
+                Log.d("Zoom", "Zoom: " + position.zoom);
+
+                if(previousZoomLevel != position.zoom) {
+                    isZooming = true;
+                }
+
+                previousZoomLevel = position.zoom;
+            }
+        });
     }
 
     public void clearMarkersOnMap(){
@@ -537,16 +543,15 @@ public class MapsActivity extends AppCompatActivity
             }
             else{
                 setPolylineHighlighting(j,'F','F',14,1); // make the selected polyline most visible
-                //System.out.println("This route_id is " + routes.get(j).getRoute_id());
+
                 for (int k = 0; k < trips.size(); k++) {
                     if (trips.get(k).getRoute_id().intValue() == routes.get(j).getRoute_id().intValue() && trips.get(k).getService_id().intValue() == service_id) {
-                        //System.out.println("Trip " + trips.get(k).getRoute_id() + " has been found on this route");
+
                         for (int m = 0; m < stopTimes.size(); m++) {
                             if (stopTimes.get(m).getTrip_id().intValue() == trips.get(k).getTrip_id().intValue()) {
-                                //System.out.println("Stop time found");
+
                                 for (int n = 0; n < busStops.size(); n++) {
                                     if (busStops.get(n).getStop_id().intValue() == stopTimes.get(m).getStop_id().intValue()) {
-                                        //System.out.println("Marker added");
 
                                         markers.add(currentMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_stop)).position(new LatLng(busStops.get(n).getStop_lat(), busStops.get(n).getStop_lon())).title(busStops.get(n).getStop_name())));
                                         markers.get(markers.size()-1).setTag(n);
